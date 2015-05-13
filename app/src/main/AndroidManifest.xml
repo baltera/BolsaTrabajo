@@ -24,6 +24,14 @@
             android:name=".SB12002Activity"
             android:label="@string/title_activity_sb12002" >
         </activity>
+        <activity
+            android:name=".GradoEspecializacionActivity"
+            android:label="@string/title_activity_grado_especializacion" >
+        </activity>
+        <activity
+            android:name=".ReferenciaActivity"
+            android:label="@string/title_activity_referencia" >
+        </activity>
     </application>
 
 </manifest>

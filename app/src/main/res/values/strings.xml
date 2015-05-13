@@ -5,4 +5,6 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_rg12001">RG12001Activity</string>
     <string name="title_activity_sb12002">SB12002Activity</string>
+    <string name="title_activity_grado_especializacion">GradoEspecializacionActivity</string>
+    <string name="title_activity_referencia">ReferenciaActivity</string>
 </resources>
