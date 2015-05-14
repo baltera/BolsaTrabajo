@@ -27,6 +27,7 @@ public class OfertaLaboralActivity extends ListActivity {
             this.startActivity(inte);
         }catch(ClassNotFoundException e){
             e.printStackTrace();
+
         }
     }
 }
