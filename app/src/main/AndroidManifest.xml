@@ -36,6 +36,10 @@
             android:name=".FB12001Activity"
             android:label="@string/title_activity_fb12001" >
         </activity>
+        <activity
+            android:name=".ReferenciaInsertarActivity"
+            android:label="@string/title_activity_referencia_insertar" >
+        </activity>
     </application>
 
 </manifest>

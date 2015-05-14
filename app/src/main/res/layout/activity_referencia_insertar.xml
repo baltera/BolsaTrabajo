@@ -1,0 +1,99 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="fia.ues.sv.bolsatrabajo.ReferenciaInsertarActivity">
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="38dp"
+        android:stretchColumns="1">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <TextView
+                android:text="@string/idReferencia"/>
+            <EditText
+                android:id="@+id/editReferencia"
+                android:inputType="text"
+                android:maxLength="7"/>
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:text="@string/idEmpleado"/>
+            <EditText
+                android:id="@+id/editIdEmpleado"
+                android:inputType="text"
+                android:maxLength="30"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:text="@string/idEmpresa"/>
+            <EditText
+                android:id="@+id/editIdEmpresa"
+                android:inputType="text"
+                android:maxLength="30"/>
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <TextView
+                android:text="@string/nombreReferencia"/>
+            <EditText
+                android:id="@+id/editNombreReferencia"
+                android:inputType="text"
+                android:maxLength="1"/>
+        </TableRow>
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <TextView
+                android:text="@string/telefonoReferencia"/>
+            <EditText
+                android:id="@+id/editTelefonoReferencia"
+                android:inputType="text"
+                android:maxLength="1"/>
+        </TableRow>
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <TextView
+                android:text="@string/opciones"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <Button
+                android:onClick="insertarAlumno"
+                android:text="@string/insertar"/>
+            <Button
+                android:onClick="limpiarTexto"
+                android:text="@string/limpiar"/>
+
+
+        </TableRow>
+
+
+    </TableLayout>
+
+</RelativeLayout>

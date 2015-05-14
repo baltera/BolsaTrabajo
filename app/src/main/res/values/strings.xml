@@ -8,4 +8,13 @@
     <string name="title_activity_grado_especializacion">GradoEspecializacionActivity</string>
     <string name="title_activity_referencia">ReferenciaActivity</string>
     <string name="title_activity_fb12001">FB12001Activity</string>
+    <string name="insertar">Insertar</string>
+    <string name="limpiar">Limpiar</string>
+    <string name="opciones">Opciones</string>
+    <string name="idReferencia">N° de Referencia</string>
+    <string name="idEmpleado">N° de Empleado:</string>
+    <string name="idEmpresa">ID Empresa:</string>
+    <string name="title_activity_referencia_insertar">ReferenciaInsertarActivity</string>
+    <string name="nombreReferencia">Nombre (Ref) :</string>
+    <string name="telefonoReferencia">Telefono (Ref) :</string>
 </resources>
