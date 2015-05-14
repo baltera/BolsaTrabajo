@@ -1,25 +1,23 @@
 package fia.ues.sv.bolsatrabajo;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 
-public class ReferenciaActivity extends ActionBarActivity {
+public class ReferenciaEliminarActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_referencia);
+        setContentView(R.layout.activity_referencia_eliminar);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_referencia, menu);
+        getMenuInflater().inflate(R.menu.menu_referencia_eliminar, menu);
         return true;
     }
 
@@ -36,25 +34,5 @@ public class ReferenciaActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void insertarReferencia(View view) {
-
-        try{
-            Class <?> clase=Class.forName("fia.ues.sv.bolsatrabajo.ReferenciaInsertarActivity");
-            Intent intento=new Intent(this,clase);
-            startActivity(intento);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void eliminarReferencia(View view) {
-    }
-
-    public void modificarReferencia(View view) {
-    }
-
-    public void consultarReferencia(View view) {
     }
 }
