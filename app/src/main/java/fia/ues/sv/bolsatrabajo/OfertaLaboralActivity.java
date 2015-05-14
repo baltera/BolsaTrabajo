@@ -7,14 +7,14 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class RG12001Activity extends ListActivity {
-    String[] tablas = {"Institucion Educacion","Oferta Laboral"};
-    String[] act = {"InstitucionEducacionActivity","OfertaLaboralActivity"};
+public class OfertaLaboralActivity extends ListActivity {
+    String[] opc = {"Crear oferta","Consultar oferta","Actualizar oferta","Eliminar oferta"};
+    String[] act = {"OfertaLaboralCrearActivity","OfertaLaboralConsultarActivity","OfertaLaboralActualizarActivity","OfertaLaboralEliminarActivity"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setListAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, tablas));
+        setListAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, opc));
     }
 
     @Override

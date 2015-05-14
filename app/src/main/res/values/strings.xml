@@ -8,4 +8,11 @@
     <string name="title_activity_grado_especializacion">GradoEspecializacionActivity</string>
     <string name="title_activity_referencia">ReferenciaActivity</string>
     <string name="title_activity_fb12001">FB12001Activity</string>
+    <string name="title_activity_oferta_laboral">OfertaLaboralActivity</string>
+    <string name="title_activity_institucion_educacion">InstitucionEducacionActivity</string>
+    <string name="title_activity_crear_oferta">CrearOfertaActivity</string>
+    <string name="title_activity_oferta_laboral_crear">OfertaLaboralCrearActivity</string>
+    <string name="title_activity_oferta_laboral_consultar">OfertaLaboralConsultarActivity</string>
+    <string name="title_activity_oferta_laboral_eliminar">OfertaLaboralEliminarActivity</string>
+    <string name="title_activity_oferta_laboral_actualizar">OfertaLaboralActualizarActivity</string>
 </resources>

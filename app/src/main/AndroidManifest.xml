@@ -36,6 +36,30 @@
             android:name=".FB12001Activity"
             android:label="@string/title_activity_fb12001" >
         </activity>
+        <activity
+            android:name=".OfertaLaboralActivity"
+            android:label="@string/title_activity_oferta_laboral" >
+        </activity>
+        <activity
+            android:name=".InstitucionEducacionActivity"
+            android:label="@string/title_activity_institucion_educacion" >
+        </activity>
+        <activity
+            android:name=".OfertaLaboralCrearActivity"
+            android:label="@string/title_activity_oferta_laboral_crear" >
+        </activity>
+        <activity
+            android:name=".OfertaLaboralConsultarActivity"
+            android:label="@string/title_activity_oferta_laboral_consultar" >
+        </activity>
+        <activity
+            android:name=".OfertaLaboralEliminarActivity"
+            android:label="@string/title_activity_oferta_laboral_eliminar" >
+        </activity>
+        <activity
+            android:name=".OfertaLaboralActualizarActivity"
+            android:label="@string/title_activity_oferta_laboral_actualizar" >
+        </activity>
     </application>
 
 </manifest>
