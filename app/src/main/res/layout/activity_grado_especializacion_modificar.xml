@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dip"
+    android:stretchColumns="1" >
+
+    <TableRow>
+
+        <TextView android:text="@string/idEspecializacion" />
+
+        <EditText
+            android:id="@+id/editEspecializacion"
+            android:inputType="text"
+            android:maxLength="7" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView android:text="@string/nombreEspecializacion" />
+        <EditText
+            android:id="@+id/editNombreEspecializacion"
+            android:inputType="text"
+            android:maxLength="30" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView android:text="@string/idInstituto" />
+
+        <EditText
+            android:id="@+id/editIdInstituto"
+            android:inputType="text"
+            android:maxLength="30" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView android:text="@string/duracionEspec" />
+
+        <EditText
+            android:id="@+id/editDuracionEspec"
+            android:inputType="text"
+            android:maxLength="5" />
+    </TableRow>
+    
+
+
+
+    <TableRow>
+
+        <Button
+            android:onClick="actualizarAlumno"
+            android:text="@string/actualizar" />
+    </TableRow>
+
+    <TableRow>
+
+        <Button
+            android:onClick="limpiarTexto"
+            android:text="@string/limpiar" />
+    </TableRow>
+
+</TableLayout>

@@ -11,10 +11,34 @@
     <string name="insertar">Insertar</string>
     <string name="limpiar">Limpiar</string>
     <string name="opciones">Opciones</string>
-    <string name="idReferencia">N° de Referencia</string>
+    <string name="idReferencia">N° de Referencia:</string>
     <string name="idEmpleado">N° de Empleado:</string>
     <string name="idEmpresa">ID Empresa:</string>
     <string name="title_activity_referencia_insertar">ReferenciaInsertarActivity</string>
     <string name="nombreReferencia">Nombre (Ref) :</string>
     <string name="telefonoReferencia">Telefono (Ref) :</string>
+    <string name="title_activity_referencia_eliminar">ReferenciaEliminarActivity</string>
+    <string name="title_activity_referencia_consultar">ReferenciaConsultarActivity</string>
+    <string name="title_activity_referencia_modificar">ReferenciaModificarActivity</string>
+    <string name="title_activity_grado_especializacion_insertar">
+        GradoEspecializacionInsertarActivity
+    </string>
+    <string name="eliminar">Eliminar</string>
+    <string name="title_activity_grado_especializacion_eliminar">
+        GradoEspecializacionEliminarActivity
+    </string>
+    <string name="title_activity_grado_especializacion_consultar">
+        GradoEspecializacionConsultarActivity
+    </string>
+    <string name="title_activity_grado_especializacion_modificar">
+        GradoEspecializacionModificarActivity
+    </string>
+    <string name="tvTablaReferencia">Tabla Referencia</string>
+    <string name="tvTablaGradoEspecializacion">Tabla Grado/Especializacion</string>
+    <string name="idEspecializacion">ID Especialización:</string>
+    <string name="idInstituto">ID Instituto de Estudio:</string>
+    <string name="nombreEspecializacion">Nombre de Especialización:</string>
+    <string name="duracionEspec">Duracion de la Especialización:</string>
+    <string name="consultar">Consultar</string>
+    <string name="actualizar">Modificar</string>
 </resources>
