@@ -56,4 +56,9 @@
     <string name="duracionEspec">Duracion de la Especialización:</string>
     <string name="consultar">Consultar</string>
     <!-- fin strings-->
+    <!-- strings FR12001-->
+    <string name="title_activity_fr12001">FR12001Activity</string>
+    <string name="title_activity_empleado">EmpleadoActivity</string>
+    <string name="title_activity_experiencia_laboral">ExperienciaLaboralActivity</string>
+    <!-- fin strings-->
 </resources>
