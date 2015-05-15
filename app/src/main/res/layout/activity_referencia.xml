@@ -29,7 +29,7 @@
         android:layout_below="@+id/TVtablaReferencia"
         android:layout_alignLeft="@+id/TVtablaReferencia"
         android:layout_alignStart="@+id/TVtablaReferencia"
-        android:onClick="insertarReferencia"
+        android:onClick="insertarRef"
         android:src="@drawable/botoninsertar1" />
 
     <ImageButton
