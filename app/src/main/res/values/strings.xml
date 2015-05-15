@@ -41,4 +41,22 @@
     <string name="duracionEspec">Duracion de la Especialización:</string>
     <string name="consultar">Consultar</string>
     <string name="actualizar">Modificar</string>
+
+    <string name="title_activity_institucion_educacion">InstitucionEducacionActivity</string>
+    <string name="title_activity_oferta_laboral">OfertaLaboralActivity</string>
+    <string name="title_activity_oferta_laboral_actualizar">OfertaLaboralActualizarActivity</string>
+    <string name="title_activity_oferta_laboral_eliminar">OfertaLaboralEliminarActivity</string>
+    <string name="title_activity_oferta_laboral_consultar">OfertaLaboralConsultarActivity</string>
+    <string name="title_activity_oferta_laboral_crear">OfertaLaboralCrearActivity</string>
+    <string name="title_activity_institucion_educacion_crear">InstitucionEducacionCrearActivity
+    </string>
+    <string name="title_activity_institucion_educacion_consultar">
+        InstitucionEducacionConsultarActivity
+    </string>
+    <string name="title_activity_institucion_educacion_actualizar">
+        InstitucionEducacionActualizarActivity
+    </string>
+    <string name="title_activity_institucion_educacion_eliminar">
+        InstitucionEducacionEliminarActivity
+    </string>
 </resources>
