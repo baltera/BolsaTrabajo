@@ -108,18 +108,8 @@
             android:name=".CargoEliminarActivity"
             android:label="@string/title_activity_cargo_eliminar" >
         </activity>
-        <activity
-            android:name=".FR12001Activity"
-            android:label="@string/title_activity_fr12001" >
-        </activity>
-        <activity
-            android:name=".EmpleadoActivity"
-            android:label="@string/title_activity_empleado" >
-        </activity>
-        <activity
-            android:name=".ExperienciaLaboralActivity"
-            android:label="@string/title_activity_experiencia_laboral" >
-        </activity>
+
+
 
 
         <!--FR12001-->
