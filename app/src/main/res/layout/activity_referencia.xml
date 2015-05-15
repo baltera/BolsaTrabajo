@@ -1,12 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="fia.ues.sv.bolsatrabajo.ReferenciaActivity"
-    android:background="#ffffffff"
-    android:clickable="true">
+    android:layout_height="match_parent" >
 
 
     <TextView
@@ -26,21 +20,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/insertarImgBoton"
-        android:layout_below="@+id/TVtablaReferencia"
-        android:layout_alignLeft="@+id/TVtablaReferencia"
-        android:layout_alignStart="@+id/TVtablaReferencia"
         android:onClick="insertarRef"
-        android:src="@drawable/botoninsertar1" />
+        android:src="@drawable/botoninsertar"
+        android:layout_above="@+id/eliminarImgBoton"
+        android:layout_alignLeft="@+id/TVtablaReferencia"
+        android:layout_alignStart="@+id/TVtablaReferencia" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/eliminarImgBoton"
+        android:onClick="eliminarReferencia"
+        android:src="@drawable/botoneliminar"
         android:layout_above="@+id/modificarImgBoton"
         android:layout_alignLeft="@+id/insertarImgBoton"
-        android:layout_alignStart="@+id/insertarImgBoton"
-        android:onClick="eliminarReferencia"
-        android:src="@drawable/botoneliminar" />
+        android:layout_alignStart="@+id/insertarImgBoton" />
 
     <ImageButton
         android:layout_width="wrap_content"

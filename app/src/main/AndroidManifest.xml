@@ -41,6 +41,10 @@
             android:label="@string/title_activity_referencia_eliminar" >
         </activity>
         <activity
+            android:name=".ReferenciaInsertarActivity"
+            android:label="@string/title_activity_referencia_insertar" >
+        </activity>
+        <activity
             android:name=".ReferenciaConsultarActivity"
             android:label="@string/title_activity_referencia_consultar" >
         </activity>
