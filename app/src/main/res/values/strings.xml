@@ -29,8 +29,6 @@
     <string name="idOfertaLaboralf">Id Oferta Laboral</string>
     <string name="opciones">Opciones:</string>
     <string name="insertar">Insertar</string>
-    <string name="eliminar">Eliminar</string>
-    <string name="actualizar">Actualizar</string>
     <string name="limpiar">Limpiar</string>
     <!-- Fin de strings FB12001 -->
     <!-- Strings SB12002 -->
@@ -43,11 +41,19 @@
     <string name="title_activity_referencia_eliminar">ReferenciaEliminarActivity</string>
     <string name="title_activity_referencia_consultar">ReferenciaConsultarActivity</string>
     <string name="title_activity_referencia_modificar">ReferenciaModificarActivity</string>
-    <string name="title_activity_grado_especializacion_insertar">GradoEspecializacionInsertarActivity</string>
-
-    <string name="title_activity_grado_especializacion_eliminar">GradoEspecializacionEliminarActivity</string>
-    <string name="title_activity_grado_especializacion_consultar">GradoEspecializacionConsultarActivity</string>
-    <string name="title_activity_grado_especializacion_modificar">GradoEspecializacionModificarActivity</string>
+    <string name="title_activity_grado_especializacion_insertar">
+        GradoEspecializacionInsertarActivity
+    </string>
+    <string name="eliminar">Eliminar</string>
+    <string name="title_activity_grado_especializacion_eliminar">
+        GradoEspecializacionEliminarActivity
+    </string>
+    <string name="title_activity_grado_especializacion_consultar">
+        GradoEspecializacionConsultarActivity
+    </string>
+    <string name="title_activity_grado_especializacion_modificar">
+        GradoEspecializacionModificarActivity
+    </string>
     <string name="tvTablaReferencia">Tabla Referencia</string>
     <string name="tvTablaGradoEspecializacion">Tabla Grado/Especializacion</string>
     <string name="idEspecializacion">ID Especialización:</string>
@@ -84,6 +90,22 @@
     <string name="title_activity_experiencia_laboral">ExperienciaLaboralActivity</string>
     <string name="title_activity_empleado_insertar">EmpleadoInsertarActivity</string>
 
-    <!--fin Strings FR12001-->
-
+    <string name="title_activity_institucion_educacion">InstitucionEducacionActivity</string>
+    <string name="title_activity_oferta_laboral">OfertaLaboralActivity</string>
+    <string name="title_activity_oferta_laboral_actualizar">OfertaLaboralActualizarActivity</string>
+    <string name="title_activity_oferta_laboral_eliminar">OfertaLaboralEliminarActivity</string>
+    <string name="title_activity_oferta_laboral_consultar">OfertaLaboralConsultarActivity</string>
+    <string name="title_activity_oferta_laboral_crear">OfertaLaboralCrearActivity</string>
+    <string name="title_activity_institucion_educacion_crear">InstitucionEducacionCrearActivity
+    </string>
+    <string name="title_activity_institucion_educacion_consultar">
+        InstitucionEducacionConsultarActivity
+    </string>
+    <string name="title_activity_institucion_educacion_actualizar">
+        InstitucionEducacionActualizarActivity
+    </string>
+    <string name="title_activity_institucion_educacion_eliminar">
+        InstitucionEducacionEliminarActivity
+    </string>
+    <string name="actualizar">Actualizar</string>
 </resources>

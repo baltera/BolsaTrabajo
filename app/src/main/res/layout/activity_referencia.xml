@@ -22,9 +22,9 @@
         android:id="@+id/insertarImgBoton"
         android:onClick="insertarRef"
         android:src="@drawable/botoninsertar"
-        android:layout_above="@+id/eliminarImgBoton"
-        android:layout_alignLeft="@+id/TVtablaReferencia"
-        android:layout_alignStart="@+id/TVtablaReferencia" />
+        android:layout_marginTop="70dp"
+        android:layout_below="@+id/TVtablaReferencia"
+        android:layout_centerHorizontal="true" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -32,7 +32,7 @@
         android:id="@+id/eliminarImgBoton"
         android:onClick="eliminarReferencia"
         android:src="@drawable/botoneliminar"
-        android:layout_above="@+id/modificarImgBoton"
+        android:layout_below="@+id/insertarImgBoton"
         android:layout_alignLeft="@+id/insertarImgBoton"
         android:layout_alignStart="@+id/insertarImgBoton" />
 
@@ -41,19 +41,19 @@
         android:layout_height="wrap_content"
         android:id="@+id/modificarImgBoton"
         android:onClick="modificarReferencia"
-        android:layout_above="@+id/consultarImgBoton"
+        android:src="@drawable/botonmodificar"
+        android:layout_below="@+id/eliminarImgBoton"
         android:layout_alignLeft="@+id/eliminarImgBoton"
-        android:layout_alignStart="@+id/eliminarImgBoton"
-        android:src="@drawable/botonmodificar" />
+        android:layout_alignStart="@+id/eliminarImgBoton" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/consultarImgBoton"
         android:onClick="consultarReferencia"
-        android:layout_alignParentBottom="true"
+        android:src="@drawable/botonconsultar"
+        android:layout_below="@+id/modificarImgBoton"
         android:layout_alignLeft="@+id/modificarImgBoton"
-        android:layout_alignStart="@+id/modificarImgBoton"
-        android:src="@drawable/botonconsultar" />
+        android:layout_alignStart="@+id/modificarImgBoton" />
 
 </RelativeLayout>
