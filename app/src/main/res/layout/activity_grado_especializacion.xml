@@ -1,11 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="fia.ues.sv.bolsatrabajo.GradoEspecializacionActivity"
-    android:orientation="vertical">
+    android:layout_height="match_parent" >
 
 
     <TextView
@@ -13,7 +8,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/tvTablaGradoEspecializacion"
-        android:id="@+id/TVtablaReferencia"
+        android:id="@+id/TVtablaGradoEspecializacion"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
@@ -27,14 +22,14 @@
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/TVtablaReferencia">
+        android:layout_below="@+id/TVtablaGradoEspecializacion">
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/insertarImgBoton"
-            android:onClick="insertarReferencia"
-            android:src="@drawable/botoninsertar1"
+            android:onClick="insertarGradoEspecializacion"
+            android:src="@drawable/botoninsertar"
             android:layout_below="@+id/TVtablaReferencia"
             android:layout_alignLeft="@+id/eliminarImgBoton"
             android:layout_alignStart="@+id/eliminarImgBoton" />
@@ -43,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/eliminarImgBoton"
-            android:onClick="eliminarReferencia"
+            android:onClick="eliminarGradoEspecializacion"
             android:src="@drawable/botoneliminar"
             android:layout_above="@+id/modificarImgBoton"
             android:layout_centerHorizontal="true" />
@@ -52,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/modificarImgBoton"
-            android:onClick="modificarReferencia"
+            android:onClick="modificarGradoEspecializacion"
             android:src="@drawable/botonmodificar"
             android:adjustViewBounds="true"
             android:layout_above="@+id/consultarImgBoton"
@@ -63,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/consultarImgBoton"
-            android:onClick="consultarReferencia"
+            android:onClick="consultarGradoEspecializacion"
             android:src="@drawable/botonconsultar"
             android:layout_gravity="left|bottom"
             android:layout_alignParentBottom="true"

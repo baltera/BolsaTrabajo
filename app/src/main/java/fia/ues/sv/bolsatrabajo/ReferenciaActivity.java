@@ -38,7 +38,7 @@ public class ReferenciaActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void insertarReferencia(View view) {
+    public void insertarRef(View view) {
 
         try{
             Class <?> clase=Class.forName("fia.ues.sv.bolsatrabajo.ReferenciaInsertarActivity");
@@ -50,11 +50,33 @@ public class ReferenciaActivity extends ActionBarActivity {
     }
 
     public void eliminarReferencia(View view) {
+
+        try{
+            Class <?> clase=Class.forName("fia.ues.sv.bolsatrabajo.ReferenciaEliminarActivity");
+            Intent intento=new Intent(this,clase);
+            startActivity(intento);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void modificarReferencia(View view) {
+        try{
+            Class <?> clase=Class.forName("fia.ues.sv.bolsatrabajo.ReferenciaModificarActivity");
+            Intent intento=new Intent(this,clase);
+            startActivity(intento);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void consultarReferencia(View view) {
+        try{
+            Class <?> clase=Class.forName("fia.ues.sv.bolsatrabajo.ReferenciaConsultarActivity");
+            Intent intento=new Intent(this,clase);
+            startActivity(intento);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
