@@ -1,39 +1,44 @@
 package fia.ues.sv.bolsatrabajo;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
-public class CargoInsertarActivity extends ActionBarActivity {
+public class CargoInsertarActivity extends Activity {
+    ControlBD helper;
+    EditText editNombreCargof; //los id definidos en el layout de insertar
+    EditText editDescripcionCargof;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cargo_insertar);
+        helper = new ControlBD(this);
+        editNombreCargof=(EditText)findViewById(R.id.editNombreCargof);
+        editDescripcionCargof=(EditText)findViewById(R.id.editDescripcionCargof);
+    }
+    public void insertarCargo(View v){
+        String nombreCargo=editNombreCargof.getText().toString();
+        String descripcionCargo=editDescripcionCargof.getText().toString();
+        String registrosInser;
+        Cargo cargo=new Cargo();
+        //cargo.setIdCargo(8);
+        cargo.setNombreCargo(nombreCargo);
+        cargo.setDescripcionCargo(descripcionCargo);
+        helper.abrir();
+        registrosInser=helper.insertar(cargo);
+        helper.cerrar();
+
+        Toast.makeText(this,registrosInser,Toast.LENGTH_SHORT).show();
+
+    }
+    public void limpiarTexto(View v){
+        editNombreCargof.setText("");
+        editDescripcionCargof.setText("");
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_cargo_insertar, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

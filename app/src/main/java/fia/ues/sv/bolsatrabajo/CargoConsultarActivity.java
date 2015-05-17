@@ -1,39 +1,46 @@
 package fia.ues.sv.bolsatrabajo;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
-public class CargoConsultarActivity extends ActionBarActivity {
+public class CargoConsultarActivity extends Activity {
+    ControlBD helper;
+    EditText editIdCargof;
+    EditText editNombreCargof;
+    EditText editDescripcionCargof;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cargo_consultar);
+        helper = new ControlBD(this);
+        editIdCargof=(EditText)findViewById(R.id.editIdCargof);
+        editNombreCargof=(EditText)findViewById(R.id.editNombreCargof);
+        editDescripcionCargof=(EditText)findViewById(R.id.editDescripcionCargof);
+
     }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_cargo_consultar, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+    public void consultarCargo(View v){
+        helper.abrir();
+        Cargo cargo = helper.consultarCargo(Integer.parseInt(editIdCargof.getText().toString()));
+        helper.cerrar();
+        if(cargo==null){
+            Toast.makeText(this,"El cargo con id:"+editIdCargof.getText().toString()+"no fue encontrado",Toast.LENGTH_LONG).show();
+      }
+        else{
+            editNombreCargof.setText(cargo.getNombreCargo());
+            editDescripcionCargof.setText(cargo.getDescripcionCargo());
         }
-
-        return super.onOptionsItemSelected(item);
     }
+    public void limpiarTexto(View v){
+        editIdCargof.setText("");
+        editNombreCargof.setText("");
+        editDescripcionCargof.setText("");
+    }
+
+
+
 }

@@ -4,6 +4,7 @@ package fia.ues.sv.bolsatrabajo;
  * Created by Eduardo on 15/05/2015.
  */
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -14,6 +15,8 @@ public class ControlBD {
     private final Context context;
     private SQLiteDatabase db;
     private DatabaseHelper DBHelper;
+    //vector con los campos de cargo
+    private static final String[] camposCargo = new String[]{"ID_CARGO","NOMBRE_CARGO","DESCRIPCION_CARGO"};
 
     public ControlBD(Context ctx) {
         this.context = ctx;
@@ -26,7 +29,7 @@ public class ControlBD {
 
         //SCRIPT SQLite CREACION BD DIVIDIDO POR INSTRUCCIONES
         private static final String sqlCreateApl="create table APLICACION(ID_APLICACION integer not null, ID_EMPLEADO integer not null, ID_OFERTALABORAL integer not null, ID_EMPRESA integer, FECHA_APLICACION  varchar(30), ESTADO_APLICACION varchar(20), primary key (ID_APLICACION,ID_EMPLEADO,ID_OFERTALABORAL,ID_EMPRESA));";
-        private static final String sqlCreateCar="create table CARGO(ID_CARGO integer not null, NOMBRE_CARGO varchar(60) not null, DESCRIPCION_CARGO varchar(140) not null, primary key (ID_CARGO));";
+        private static final String sqlCreateCar="create table CARGO(ID_CARGO integer autoincrement, NOMBRE_CARGO varchar(60) not null, DESCRIPCION_CARGO varchar(140) not null, primary key (ID_CARGO));";
         private static final String sqlCreateDetEst="create table DETALLEESTUDIO(ID_DETALLEEST integer not null, ID_EMPLEADO integer, ID_ESPECIALIZACION integer, ID_INSTITUTOESTUDIO integer, ANYOGRADUACION_DETALLEEST integer, primary key (ID_DETALLEEST,ID_EMPLEADO));";
         private static final String sqlCreateEmpl="create table EMPLEADO(ID_EMPLEADO integer not null, NOMBRE_EMPLEADO varchar(50) not null, DUI_EMPLEADO integer not null, SEXO_EMPLEADO varchar(1) not null, EDAD_EMPLEADO integer not null, DIRECCION_EMPLEADO varchar(100) not null, TELEFONO_EMPLEADO integer not null, CANTAPLICACIONES_EMPLEADO integer, CANTREFERENCIAS_EMPLEADO integer,primary key (ID_EMPLEADO));";
         private static final String sqlCreateEmp="create table EMPRESA(ID_EMPRESA integer not null, NOMBRE_EMPRESA varchar(50) not null, NIT_EMPRESA varchar(25) not null, DIR_EMPRESA varchar(50) not null, TEL_EMPRESA varchar(10), CANTOFERTAS_EMPRESA  integer NOT NULL, primary key (ID_EMPRESA));";
@@ -74,4 +77,92 @@ public class ControlBD {
     //Aqui cada uno se divierte :)
 
     /*****************************************************************************************************************************************/
+     public String insertar(Cargo cargo){
+         String registrosInser ="Registro insertado N°= ";
+         long contador=0;
+         ContentValues carg = new ContentValues();
+         //carg.put("ID_CARGO",cargo.getIdCargo());
+         carg.put("NOMBRE_CARGO",cargo.getNombreCargo());
+         carg.put("DESCRIPCION_CARGO",cargo.getDescripcionCargo());
+
+         contador=db.insert("CARGO",null,carg);
+         if(contador==-1||contador==0){
+             registrosInser="error al insertar";
+         }
+         else{
+             registrosInser=registrosInser+contador;
+         }
+         return registrosInser;
+     }
+    public  String insertar (Aplicacion aplicacion){
+        //esta insercion debe cumplir que existan los id de empleado, empresa y ofertalaboral
+        String registrosInser="Registro insertado N°= ";
+        long contador=0;
+        ContentValues apli = new ContentValues();
+        apli.put("FECHA_APLICACION",aplicacion.getFechaAplicacion());
+        apli.put("ESTADO_APLICACION",aplicacion.getEstadoAplicacion());
+        contador=db.insert("APLICACION",null,apli);
+        if(contador==-1||contador==0){
+            registrosInser="error al insertar";
+        }
+        else{
+            registrosInser=registrosInser+contador;
+        }
+        return registrosInser;
+
+
+    }
+    public String actualizar(Cargo cargo){
+       /* //if(verificarIntegridad(cargo, 5)){
+        String[] id = {cargo.getIdCargo().toString()};
+        ContentValues cv = new ContentValues();
+        // cv.put("", alumno.getNombre());
+        cv.put("NOMBRE_CARGO", cargo.getNombreCargo());
+        cv.put("DESCRIPCION_CARGO", cargo.getDescripcionCargo());
+        db.update("cargo", cv, "ID_CARGO = ?", id);
+        return "Registro Actualizado Correctamente";
+        //}else{
+        //return "Registro con carnet " + alumno.getCarnet() + " no existe";
+        //}*/
+         return null;
+
+
+    }
+    public String actualizar(Aplicacion aplicacion){
+        return null;
+    }
+    public String eliminar(Cargo cargo){
+         /* String regAfectados="filas afectadas= ";
+        int contador=0;
+        if (verificarIntegridad(cargo,3)) {
+            contador+=db.delete("ID_CARGO", "carnet='"+alumno.getCarnet()+"'", null);
+        }
+        contador+=db.delete("alumno", "carnet='"+alumno.getCarnet()+"'", null);
+        regAfectados+=contador;
+        return regAfectados;*/
+        return null;
+    }
+    public String eliminar(Aplicacion aplicacion){
+        return null;
+    }
+    public Cargo consultarCargo(Integer idCargo){
+        String idc= idCargo.toString();
+        String[] id = {idc};
+        Cursor cursor= db.query("cargo",camposCargo,"ID_CARGO= ?",id,null,null,null); //"ID_CARGO= ?" CARGO??
+        if(cursor.moveToFirst()){
+            Cargo cargo= new Cargo();
+            cargo.setIdCargo(Integer.parseInt(cursor.getString(0)));
+            cargo.setNombreCargo(cursor.getString(1));
+            cargo.setDescripcionCargo(cursor.getString(2));
+            return cargo;
+        }else{
+            return null;
+        }
+
+    }
+    public Aplicacion consultarAplicacion(Integer idAplicacion){
+        return null;
+    }
+
+
 }

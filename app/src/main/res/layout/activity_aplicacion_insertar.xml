@@ -7,14 +7,14 @@
     <TableRow>
         <TextView android:text="@string/fechaAplicacionf"/>
         <EditText
-            android:id="@+id/editFechaAplicacion"
+            android:id="@+id/editFechaAplicacionf"
             android:inputType="text"
             android:maxLength="10" />
     </TableRow>
     <TableRow>
         <TextView android:text="@string/estadoAplicacionf" />
         <EditText
-            android:id="@+id/editEstadoAplicacion"
+            android:id="@+id/editEstadoAplicacionf"
             android:inputType="text"
             android:maxLength="30" />
     </TableRow>
