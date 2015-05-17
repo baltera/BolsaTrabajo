@@ -8,9 +8,30 @@
     <string name="title_activity_grado_especializacion">GradoEspecializacionActivity</string>
     <string name="title_activity_referencia">ReferenciaActivity</string>
     <string name="title_activity_fb12001">FB12001Activity</string>
+
+    <!--  Strings de FB12001 -->
+    <string name="title_activity_cargo_menu">CargoMenuActivity</string>
+    <string name="title_activity_aplicacion_menu">AplicacionMenuActivity</string>
+    <string name="title_activity_aplicacion_insertar">AplicacionInsertarActivity</string>
+    <string name="title_activity_aplicacion_actualizar">AplicacionActualizarActivity</string>
+    <string name="title_activity_aplicacion_consultar">AplicacionConsultarActivity</string>
+    <string name="title_activity_aplicacion_eliminar">AplicacionEliminarActivity</string>
+    <string name="title_activity_cargo_insertar">CargoInsertarActivity</string>
+    <string name="title_activity_cargo_actualizar">CargoActualizarActivity</string>
+    <string name="title_activity_cargo_consultar">CargoConsultarActivity</string>
+    <string name="title_activity_cargo_eliminar">CargoEliminarActivity</string>
+    <string name="nombreCargof">Cargo:</string>
+    <string name="descripcionCargof">Descripción:</string>
+    <string name="fechaAplicacionf">Fecha</string>
+    <string name="estadoAplicacionf">Estado</string>
+    <string name="idCargof">Id Cargo</string>
+    <string name="idAplicacionf">Id Aplicacion</string>
+    <string name="idOfertaLaboralf">Id Oferta Laboral</string>
+    <string name="opciones">Opciones:</string>
     <string name="insertar">Insertar</string>
     <string name="limpiar">Limpiar</string>
-    <string name="opciones">Opciones</string>
+    <!-- Fin de strings FB12001 -->
+    <!-- Strings SB12002 -->
     <string name="idReferencia">N° de Referencia:</string>
     <string name="idEmpleado">N° de Empleado:</string>
     <string name="idEmpresa">ID Empresa:</string>
@@ -40,7 +61,34 @@
     <string name="nombreEspecializacion">Nombre de Especialización:</string>
     <string name="duracionEspec">Duracion de la Especialización:</string>
     <string name="consultar">Consultar</string>
-    <string name="actualizar">Modificar</string>
+    <!-- fin strings-->
+    <!-- strings FR12001-->
+    <string name="empleado">Empleado</string>
+    <string name="nombreEmpleado">Nombre: </string>
+    <string name="duiEmpleado">Dui: </string>
+    <string name="sexoEmpleado">Sexo: </string>
+    <string name="sexoF">Femenino</string>
+    <string name="sexoM">Masculino</string>
+    <string name="edadEmpleado">Edad: </string>
+    <string name="direccionEmpleado">Direccion: </string>
+    <string name="telefonoEmpleado">Telefono: </string>
+    <string name="cantAplicacionesEmpleado">Aplicaciones que sigues: </string>
+    <string name="cantReferenciasEmpleado">Referencias: </string>
+    <string name="title_activity_empleado_consultar">EmpleadoConsultarActivity</string>
+    <string name="title_activity_empleado_actualizar">EmpleadoActualizarActivity</string>
+    <string name="title_activity_empleado_eliminar">EmpleadoEliminarActivity</string>
+    <string name="title_activity_exp_laboral_insertar">ExpLaboralInsertarActivity</string>
+    <string name="title_activity_exp_laboral_consultar">ExpLaboralConsultarActivity</string>
+    <string name="title_activity_exp_laboral_modificar">ExpLaboralModificarActivity</string>
+    <string name="title_activity_exp_laboral_eliminar">ExpLaboralEliminarActivity</string>
+    <string name="consultarIdEmpleado">Ingrese el N° de Empleado que se le asigno: </string>
+    <string name="modificarEmpleado">Modificar este Empleado</string>
+    <string name="eliminarEmpleado">Eliminar este empleado</string>
+    <string name="actualizarDatos">Actualizar Datos</string>
+    <string name="title_activity_fr12001">FR12001Activity</string>
+    <string name="title_activity_empleado">EmpleadoActivity</string>
+    <string name="title_activity_experiencia_laboral">ExperienciaLaboralActivity</string>
+    <string name="title_activity_empleado_insertar">EmpleadoInsertarActivity</string>
 
     <string name="title_activity_institucion_educacion">InstitucionEducacionActivity</string>
     <string name="title_activity_oferta_laboral">OfertaLaboralActivity</string>
@@ -59,4 +107,5 @@
     <string name="title_activity_institucion_educacion_eliminar">
         InstitucionEducacionEliminarActivity
     </string>
+    <string name="actualizar">Actualizar</string>
 </resources>
