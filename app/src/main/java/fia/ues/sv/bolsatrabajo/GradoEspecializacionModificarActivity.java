@@ -36,7 +36,7 @@ public class GradoEspecializacionModificarActivity extends ActionBarActivity {
         helper.abrir();
         String estate=helper.modificar(especializacion);
         helper.cerrar();
-        Toast.makeText(this, estate, Toast.LENGTH_SHORT);
+        Toast.makeText(this, estate, Toast.LENGTH_SHORT).show();
     }
 
    public void limpiarModificarGrado(View view){

@@ -27,7 +27,7 @@ public class GradoEspecializacionConsultarActivity extends ActionBarActivity {
 
     public void consultarGradoEspecializacionAct(View  view){
         helper.abrir();
-        GradoEspecializacion especializacion=helper.consultarGradoEspecializacion(String.valueOf(editEspecializacion));//aquí puede haber un error porque envio un string en vez de un Int
+        GradoEspecializacion especializacion=helper.consultarGradoEspecializacion(String.valueOf(editEspecializacion.getText().toString()));//aquí puede haber un error porque envio un string en vez de un Int
 
         helper.cerrar();
         if(especializacion==null){
@@ -36,7 +36,7 @@ public class GradoEspecializacionConsultarActivity extends ActionBarActivity {
         else{
             editIdInstituto.setText(String.valueOf(especializacion.getId_institutoEstudio()));
             editNombreEspecializacion.setText(especializacion.getNombre_especializacion());
-            editDuracionEspec.setText(especializacion.getDuracion_especializacion());
+            editDuracionEspec.setText(String.valueOf(especializacion.getDuracion_especializacion()));
 
         }
     }

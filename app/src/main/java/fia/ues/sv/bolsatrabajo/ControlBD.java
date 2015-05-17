@@ -154,7 +154,27 @@ public class ControlBD {
 
 
     public String insertar(GradoEspecializacion especializacion){
-        return null;
+        String regInsertados="Especializacion Insertada N°= " ;
+        long cont=0;
+
+        ContentValues cv=new ContentValues();
+        cv.put("ID_ESPECIALIZACION", especializacion.getId_especializacion());
+        cv.put("ID_INSTITUTOESTUDIO", especializacion.getId_institutoEstudio());
+        cv.put("NOMBRE_ESPECIALIZACION", especializacion.getNombre_especializacion());
+        cv.put("DURACION_ESPECIALIZACION", especializacion.getDuracion_especializacion());
+
+        cont=db.insert("GRADOESPECIALIZACION", null, cv);
+
+        if(cont==-1|| cont==0){
+            regInsertados="Error al Insertar La Especializacion, ya existe esa Especializacion.";
+
+        }
+        else {
+            regInsertados+=cont;
+        }
+
+        return regInsertados;
+
     }
 
     public String eliminar(GradoEspecializacion especializacion){
@@ -167,11 +187,38 @@ public class ControlBD {
     }
 
     public String modificar(GradoEspecializacion especializacion){
-        return null;
+        if(/*verificarIntegridad(especializacion,4)*/true){         //Ahorita esto esta de prueba para poder correrlo
+            String id[]={String.valueOf(especializacion.getId_especializacion())};
+            ContentValues refe=new ContentValues();
+            refe.put("ID_INSTITUTOESTUDIO", especializacion.getId_institutoEstudio());
+            refe.put("NOMBRE_ESPECIALIZACION", especializacion.getNombre_especializacion());
+            refe.put("DURACION_ESPECIALIZACION", especializacion.getDuracion_especializacion());
+            db.update("GRADOESPECIALIZACION",refe,"ID_ESPECIALIZACION= ? ",id);
+            return "Se Actualizó la Especializacion ";
+
+        }
+        else{
+            return "La Especializacion No existe o no esta asociada a ese Insitituo";
+        }
     }
 
     public GradoEspecializacion consultarGradoEspecializacion(String idEspec){
-        return null;
+
+        String[] id={idEspec};
+        Cursor cursor=db.query("GRADOESPECIALIZACION",camposGradoEspecializacion,"ID_ESPECIALIZACION= ? ",id,null,null,null);
+
+        if(cursor.moveToFirst()){
+            GradoEspecializacion espec=new GradoEspecializacion();
+            espec.setId_especializacion(cursor.getInt(0));
+            espec.setId_institutoEstudio(cursor.getInt(1));
+            espec.setNombre_especializacion(cursor.getString(2));
+            espec.setDuracion_especializacion(cursor.getInt(3));
+
+            return espec;
+        }else {
+
+            return null;
+        }
     }
 
     public boolean verificarIntegridad(Object dato,int relacion) {

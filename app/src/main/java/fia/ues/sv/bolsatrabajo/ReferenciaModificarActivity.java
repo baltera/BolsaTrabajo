@@ -36,7 +36,7 @@ public class ReferenciaModificarActivity extends ActionBarActivity {
         helper.abrir();
         String estate=helper.modificar(referencia);
         helper.cerrar();
-        Toast.makeText(this,estate,Toast.LENGTH_SHORT);
+        Toast.makeText(this,estate,Toast.LENGTH_SHORT).show();
     }
     public void limpiarTexto(View view){
         editIdEmpleado.setText("");
