@@ -50,14 +50,14 @@
     <TableRow>
 
         <Button
-            android:onClick="actualizarAlumno"
+            android:onClick="modificarGradoEspecAct"
             android:text="@string/actualizar" />
     </TableRow>
 
     <TableRow>
 
         <Button
-            android:onClick="limpiarTexto"
+            android:onClick="limpiarModificarGrado"
             android:text="@string/limpiar" />
     </TableRow>
 

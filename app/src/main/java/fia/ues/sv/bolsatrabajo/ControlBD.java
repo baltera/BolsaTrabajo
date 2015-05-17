@@ -123,7 +123,7 @@ public class ControlBD {
             ContentValues refe=new ContentValues();
             refe.put("NOMBRE_REFERENCIA",referencia.getNombre_referencia());
             refe.put("TELEFONO_REFERENCIA",referencia.getTelefono_referencia());
-            refe.put("ID_EMPRESA",referencia.getId_empresa());
+            refe.put("ID_EMPRESA", referencia.getId_empresa());
             db.update("REFERENCIA",refe,"ID_REFERENCIA= ? AND ID_EMPLEADO= ?",id);
             return "Se Actualizó la Referencia";
 
@@ -158,14 +158,19 @@ public class ControlBD {
     }
 
     public String eliminar(GradoEspecializacion especializacion){
-        return null;
+
+        String regDelete="Filas Eliminadas= ";
+        int cont=0;
+        cont=db.delete("GRADOESPECIALIZACION","ID_ESPECIALIZACION='"+especializacion.getId_especializacion()+"'",null);
+        return regDelete+=cont;
+
     }
 
     public String modificar(GradoEspecializacion especializacion){
         return null;
     }
 
-    public String consultarGradoEspecializacion(String idEspec){
+    public GradoEspecializacion consultarGradoEspecializacion(String idEspec){
         return null;
     }
 
