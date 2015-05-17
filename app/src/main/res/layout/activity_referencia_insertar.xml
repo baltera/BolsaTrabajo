@@ -84,7 +84,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
             <Button
-                android:onClick="insertarAlumno"
+                android:onClick="insertarReferenciaAct"
                 android:text="@string/insertar"/>
             <Button
                 android:onClick="limpiarTexto"

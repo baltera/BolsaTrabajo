@@ -4,16 +4,25 @@ package fia.ues.sv.bolsatrabajo;
  * Created by Eduardo on 15/05/2015.
  */
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.provider.ContactsContract;
+
+import java.sql.Ref;
+import java.util.Objects;
+
 public class ControlBD {
 
     private final Context context;
     private SQLiteDatabase db;
     private DatabaseHelper DBHelper;
+
+    public static String[] camposReferencia={"ID_REFERENCIA","ID_EMPLEADO","ID_EMPRESA","NOMBRE_REFERENCIA","TELEFONO_REFERENCIA"};
+    public static String[] camposGradoEspecializacion={"ID_ESPECIALIZACION","ID_INSTITUTOESTUDIO","NOMBRE_ESPECIALIZACION","DURACION_ESPECIALIZACION"};
 
     public ControlBD(Context ctx) {
         this.context = ctx;
@@ -74,4 +83,173 @@ public class ControlBD {
     //Aqui cada uno se divierte :)
 
     /*****************************************************************************************************************************************/
-}
+
+    public String insertar(Referencia referencia){
+
+        String regInsertados="Referencia Insertada N°= " ;
+        long cont=0;
+
+        ContentValues refe=new ContentValues();
+        refe.put("ID_REFERENCIA",referencia.getId_referencia());
+        refe.put("ID_EMPLEADO",referencia.getId_empleado());
+        refe.put("ID_EMPRESA",referencia.getId_empresa());
+        refe.put("NOMBRE_REFERENCIA",referencia.getNombre_referencia());
+        refe.put("TELEFONO_REFERENCIA",referencia.getTelefono_referencia());
+        cont=db.insert("REFERENCIA", null, refe);
+
+        if(cont==-1|| cont==0){
+            regInsertados="Error al Insertar La referencia, ya existe esa referencia.";
+
+        }
+        else {
+            regInsertados+=cont;
+        }
+
+        return regInsertados;
+    }
+
+    public String eliminar(Referencia referencia){
+
+        String regDelete="Referencias Eliminadas= ";
+        int cont=0;
+        cont=db.delete("REFERENCIA","ID_REFERENCIA='"+referencia.getId_referencia()+"'",null);
+        return regDelete+=cont;
+
+        }
+
+    public String modificar(Referencia referencia){
+        if(verificarIntegridad(referencia,3)){
+            String id[]={String.valueOf(referencia.getId_referencia()),String.valueOf(referencia.getId_empleado())};
+            ContentValues refe=new ContentValues();
+            refe.put("NOMBRE_REFERENCIA",referencia.getNombre_referencia());
+            refe.put("TELEFONO_REFERENCIA",referencia.getTelefono_referencia());
+            refe.put("ID_EMPRESA",referencia.getId_empresa());
+            db.update("REFERENCIA",refe,"ID_REFERENCIA= ? AND ID_EMPLEADO= ?",id);
+            return "Se Actualizó la Referencia";
+
+        }
+        else{
+            return "La referencia No existe o no esta asociada a ese empleado";
+        }
+
+    }
+
+    public Referencia consultarReferencia(String idReferencia){
+        String[] id={idReferencia};
+        Cursor cursor=db.query("REFERENCIA",camposReferencia,"ID_REFERENCIA= ?",id,null,null,null);
+
+        if(cursor.moveToFirst()){
+            Referencia referencia=new Referencia();
+            referencia.setId_referencia(cursor.getInt(0));
+            referencia.setId_empleado(cursor.getInt(1));
+            referencia.setId_empresa(cursor.getInt(2));
+            referencia.setNombre_referencia(cursor.getString(3));
+            referencia.setTelefono_referencia(cursor.getString(4));
+            return referencia;
+        }else {
+
+            return null;
+        }
+    }
+
+
+    public String insertar(GradoEspecializacion especializacion){
+        return null;
+    }
+
+    public String eliminar(GradoEspecializacion especializacion){
+        return null;
+    }
+
+    public String modificar(GradoEspecializacion especializacion){
+        return null;
+    }
+
+    public String consultarGradoEspecializacion(String idEspec){
+        return null;
+    }
+
+    public boolean verificarIntegridad(Object dato,int relacion) {
+
+
+        switch (relacion) {
+            case 1: {
+                //Verificar que al insertar una relacion, exista el empleado y la empresa de referencia y ademas que no exista esa referencia
+                Referencia referencia=(Referencia)dato;
+                String id[]={String.valueOf(referencia.getId_empleado())};
+                String id2[]={String.valueOf(referencia.getId_empresa())};
+
+                Cursor cursor1=db.query("EMPLEADO",null,"ID_EMPLEADO=?",id,null,null,null);
+                Cursor cursor2=db.query("EMPRESA",null,"ID_EMPRESA=?",id2,null,null,null);
+
+                if(cursor1.moveToFirst()&cursor2.moveToFirst()){ //aqui solo unse un "&"
+                    return true;
+
+                }
+
+                return false;
+            }
+
+            case 2:{
+                //verificar que al ingresar una especializacion exista el instituto de estudio
+                GradoEspecializacion especializacion=(GradoEspecializacion)dato;
+                String id[]={String.valueOf(especializacion.getId_institutoEstudio())};
+
+
+                Cursor cursor1=db.query("INSTITUTOESTUDIO",null,"ID_INSTITUTOESTUDIO=?",id,null,null,null);
+
+
+                if(cursor1.moveToFirst()){ //aqui solo unse un "&"
+                    return true;
+
+                }
+
+                return false;
+            }
+            case 3:
+            {
+                //verificar que al actualizar la Referencia exista y el empleado este asociado a esa referencia
+                Referencia referencia=(Referencia)dato;
+                String id[]={String.valueOf(referencia.getId_empleado())};
+                String id2[]={String.valueOf(referencia.getId_referencia())};
+
+                Cursor cursor1=db.query("REFERENCIA",null,"ID_EMPLEADO=?",id,null,null,null);
+                Cursor cursor2=db.query("REFERENCIA",null,"ID_REFERENCIA=?",id2,null,null,null);
+
+                if(cursor1.moveToFirst()&cursor2.moveToFirst()){ //aqui solo unse un "&"
+                    return true;
+
+                }
+
+                return false;
+
+
+            }
+            case 4:
+            {
+                //verificar que al actualizar un gradoEspecializacion exista el instituto de estudio
+                GradoEspecializacion especializacion=(GradoEspecializacion)dato;
+                String id[]={String.valueOf(especializacion.getId_institutoEstudio())};
+
+
+                Cursor cursor1=db.query("INSTITUTOESTUDIO",null,"ID_INSTITUTOESTUDIO=?",id,null,null,null);
+
+
+                if(cursor1.moveToFirst()){ //aqui solo unse un "&"
+                    return true;
+
+                }
+
+                return false;
+            }
+
+            default: {
+                return false;
+            }
+
+
+        }
+
+        }
+    }
+

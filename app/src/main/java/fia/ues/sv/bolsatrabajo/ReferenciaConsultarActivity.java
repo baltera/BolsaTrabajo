@@ -4,35 +4,50 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class ReferenciaConsultarActivity extends ActionBarActivity {
 
+    ControlBD helper;
+    EditText editReferencia,editIdEmpleado,editIdEmpresa,editNombreReferencia,editTelefonoReferencia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_referencia_consultar);
+        helper=new ControlBD(this);
+        editReferencia=(EditText)findViewById(R.id.editReferencia);
+        editIdEmpleado=(EditText)findViewById(R.id.editIdEmpleado);
+        editIdEmpresa=(EditText)findViewById(R.id.editIdEmpresa);
+        editNombreReferencia=(EditText)findViewById(R.id.editNombreReferencia);
+        editTelefonoReferencia=(EditText)findViewById(R.id.editTelefonoReferencia);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_referencia_consultar, menu);
-        return true;
-    }
+    public void consultarReferenciaAct(View view){
+        helper.abrir();
+        Referencia referencia=helper.consultarReferencia(String.valueOf(editReferencia));//aquí puede haber un error porque envio un string en vez de un Int
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        helper.cerrar();
+        if(referencia==null){
+            Toast.makeText(this,"Referencia no encontrada.",Toast.LENGTH_SHORT).show();
+        }
+        else{
+            editIdEmpleado.setText(String.valueOf(referencia.getId_empleado()));
+            editIdEmpresa.setText(String.valueOf(referencia.getId_empresa()));
+            editNombreReferencia.setText(String.valueOf(referencia.getNombre_referencia()));
+            editTelefonoReferencia.setText(String.valueOf(referencia.getTelefono_referencia()));
         }
 
-        return super.onOptionsItemSelected(item);
     }
+    public void limpiarTexto(View view){
+        editIdEmpleado.setText("");
+        editReferencia.setText("");
+        editIdEmpresa.setText("");
+        editNombreReferencia.setText("");
+        editTelefonoReferencia.setText("");
+
+    }
+
 }
