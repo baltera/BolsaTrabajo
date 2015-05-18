@@ -61,8 +61,8 @@
     <string name="nombreEmpleado">Nombre: </string>
     <string name="duiEmpleado">Dui: </string>
     <string name="sexoEmpleado">Sexo: </string>
-    <string name="sexoF">Femenino</string>
-    <string name="sexoM">Masculino</string>
+    <string name="sexoF">F</string>
+    <string name="sexoM">M</string>
     <string name="edadEmpleado">Edad: </string>
     <string name="direccionEmpleado">Direccion: </string>
     <string name="telefonoEmpleado">Telefono: </string>
@@ -83,7 +83,21 @@
     <string name="title_activity_empleado">EmpleadoActivity</string>
     <string name="title_activity_experiencia_laboral">ExperienciaLaboralActivity</string>
     <string name="title_activity_empleado_insertar">EmpleadoInsertarActivity</string>
-
+    <string name="idEmpleadoExpLab">Proporcione su empleado[ID]: </string>
+    <string name="idEmpresaExpLab">Proporcione el ID de Empresa: </string>
+    <string name="idCargoExpLab">Proporcione el ID del Cargo: </string>
+    <string name="insertarEL">Ingresar Mi experiencia Laboral</string>
     <!--fin Strings FR12001-->
-
+    <!--Inicio RG12001-->
+    <string name="title_activity_oferta_laboral">OfertaLaboralActivity</string>
+    <string name="title_activity_institucion_educacion">InstitucionEducacionActivity</string>
+    <string name="title_activity_oleliminar">OLEliminarActivity</string>
+    <string name="title_activity_olactualizar">OLActualizarActivity</string>
+    <string name="title_activity_olconsultar">OLConsultarActivity</string>
+    <string name="title_activity_olinsertar">OLInsertarActivity</string>
+    <string name="title_activity_ieinsertar">IEInsertarActivity</string>
+    <string name="title_activity_ieconsultar">IEConsultarActivity</string>
+    <string name="title_activity_ieeliminar">IEEliminarActivity</string>
+    <string name="title_activity_ieactualizar">IEActualizarActivity</string>
+    <!--fin RG12001-->
 </resources>

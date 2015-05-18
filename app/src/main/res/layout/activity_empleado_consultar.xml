@@ -1,11 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="fia.ues.sv.bolsatrabajo.EmpleadoConsultarActivity"
+    android:layout_height="fill_parent"
     android:orientation="vertical">
 
 
@@ -16,8 +12,8 @@
              />
 
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/editConsultarIdEmp"
             android:inputType="number"
 
@@ -27,128 +23,167 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/consultar"
-            android:id="@+id/buttonConsultarEmpleado" />
+            android:id="@+id/buttonConsultarEmpleado"
+            android:onClick="consultarEmpleado"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/limpiar"
-            android:id="@+id/buttonLimpiarEmpleado"/>
- </LinearLayout>
+            android:id="@+id/buttonLimpiarEmpleado"
+            android:onClick="limpiarConsulta"/>
 
+    </LinearLayout>
+
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
 
     <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/nombreEmpleado"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nombreEmpleado"
+        android:id="@+id/textView" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+    <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/editConsultarNomEmp"
             android:inputType="text"
             android:enabled="false"
+            android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:cursorVisible="false"
+                android:longClickable="false"
 
             />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/duiEmpleado"
        />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/editConsultarDuiEmp"
         android:inputType="number"
         android:enabled="false"
+        android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:cursorVisible="false"
+            android:longClickable="false"
         />
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/sexoEmpleado"
          />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
         android:id="@+id/editConsultarSexEmp"
         android:inputType="text"
         android:enabled="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:cursorVisible="false"
+        android:longClickable="false"
       />
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/edadEmpleado"
          />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
         android:id="@+id/editConsultarEdadEmp"
         android:inputType="number"
         android:enabled="false"
-        android:layout_weight="1" />
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:cursorVisible="false"
+        android:longClickable="false"
+       />
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/direccionEmpleado"
-        android:layout_weight="1" />
+        />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/editConsultarDirecEmp"
         android:inputType="number"
         android:enabled="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:cursorVisible="false"
+        android:longClickable="false"
         />
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/telefonoEmpleado"
          />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/editConsultarTelEmp"
         android:inputType="number"
         android:enabled="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:cursorVisible="false"
+        android:longClickable="false"
          />
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/cantAplicacionesEmpleado"
         />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/editConsultarCantApEmp"
         android:inputType="number"
         android:enabled="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:cursorVisible="false"
+        android:longClickable="false"
          />
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/cantReferenciasEmpleado"
          />
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/editConsultarCantRefEmp"
         android:inputType="number"
         android:enabled="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:cursorVisible="false"
+        android:longClickable="false"
          />
 
 
 
-
+</LinearLayout>
 </LinearLayout>

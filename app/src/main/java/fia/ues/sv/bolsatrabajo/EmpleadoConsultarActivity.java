@@ -1,39 +1,73 @@
 package fia.ues.sv.bolsatrabajo;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
-public class EmpleadoConsultarActivity extends ActionBarActivity {
+public class EmpleadoConsultarActivity extends Activity {
+
+    ControlBD helper;
+    EditText editIdEmpleado;
+    EditText editNombreEmpleado;
+    EditText editDuiEmpleado;
+    EditText editSexoEmpleado;
+    EditText editEdadEmpleado;
+    EditText editDireccionEmpleado;
+    EditText editTelefonoEmpleado;
+    EditText editCantApEmpleado;
+    EditText editCantRefEmpleado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_empleado_consultar);
+        helper = new ControlBD(this);
+        editIdEmpleado= (EditText)findViewById(R.id.editConsultarIdEmp);
+        editNombreEmpleado=(EditText)findViewById(R.id.editConsultarNomEmp);
+        editDuiEmpleado=(EditText)findViewById(R.id.editConsultarDuiEmp);
+        editSexoEmpleado=(EditText)findViewById(R.id.editConsultarSexEmp);
+        editEdadEmpleado=(EditText)findViewById(R.id.editConsultarEdadEmp);
+        editDireccionEmpleado=(EditText)findViewById(R.id.editConsultarDirecEmp);
+        editTelefonoEmpleado=(EditText)findViewById(R.id.editConsultarTelEmp);
+        editCantApEmpleado=(EditText)findViewById(R.id.editConsultarCantApEmp);
+        editCantRefEmpleado=(EditText)findViewById(R.id.editConsultarCantRefEmp);
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_empleado_consultar, menu);
-        return true;
+    public void consultarEmpleado(View v) {
+        helper.abrir();
+        Empleado empleado = helper.consultarEmpleado(editIdEmpleado.getText().toString());
+        helper.cerrar();
+        if (empleado == null) {
+            Toast.makeText(this, "Empleado " + editIdEmpleado.getText().toString() + " Inexistente", Toast.LENGTH_LONG).show();
+        } else {
+            editNombreEmpleado.setText(empleado.getNombre_empleado());
+            editDuiEmpleado.setText(String.valueOf(empleado.getDui_empleado()));
+            editSexoEmpleado.setText(empleado.getSexo_empleado());
+            editEdadEmpleado.setText(String.valueOf(empleado.getEdad_empleado()));
+            editDireccionEmpleado.setText(empleado.getDireccion_empleado());
+            editTelefonoEmpleado.setText(String.valueOf(empleado.getTelefono_empleado()));
+            editCantRefEmpleado.setText(String.valueOf(empleado.getCantAplicaciones_empleado()));
+            editCantRefEmpleado.setText(String.valueOf(empleado.getCantReferencias_empleado()));
+        }
     }
+        public void limpiarConsulta(View v){
+            editIdEmpleado.setText("");
+            editNombreEmpleado.setText("");
+            editDuiEmpleado.setText("");
+            editEdadEmpleado.setText("");
+            editSexoEmpleado.setText("");
+            editDireccionEmpleado.setText("");
+            editTelefonoEmpleado.setText("");
+            editCantRefEmpleado.setText("");
+            editCantRefEmpleado.setText("");
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
         }
 
-        return super.onOptionsItemSelected(item);
     }
-}

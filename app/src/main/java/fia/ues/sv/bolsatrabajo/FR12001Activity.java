@@ -34,7 +34,7 @@ public class FR12001Activity extends ListActivity {
         String nombreValue = activities[position];
         l.getChildAt(position).setBackgroundColor(Color.parseColor("#CC9999"));
         try {
-            Class<?> clase = Class.forName("fia.ues.sv.bolsatrabajo." + nombreValue);
+            Class<?> clase = Class.forName("fia.ues.sv.bolsatrabajo." +nombreValue);
             Intent inte = new Intent(this, clase);
             this.startActivity(inte);
         } catch (ClassNotFoundException e) {

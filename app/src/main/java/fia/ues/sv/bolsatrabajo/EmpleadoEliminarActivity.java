@@ -1,39 +1,43 @@
 package fia.ues.sv.bolsatrabajo;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
-public class EmpleadoEliminarActivity extends ActionBarActivity {
+public class EmpleadoEliminarActivity extends Activity {
+
+    ControlBD helper;
+    EditText editEliminarIdEmp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_empleado_eliminar);
+        editEliminarIdEmp=(EditText)findViewById(R.id.editEliminarIdEmp);
+        helper= new ControlBD(this);
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_empleado_eliminar, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+    public void eliminarEmpleado(View v)
+    {
+        String regEliminadas;
+        Empleado empleado= new Empleado();
+        String  idEmpleado=(editEliminarIdEmp.getText().toString());
+        helper.abrir();
+        empleado=helper.consultarEmpleado(idEmpleado);
+        if (empleado==null){
+            Toast.makeText(this,"Empleado "+idEmpleado+" inexistente",Toast.LENGTH_LONG).show();
+        }else{
+            empleado.setId(Integer.parseInt(idEmpleado));
+            regEliminadas=helper.eliminarEmpleado(empleado);
+            Toast.makeText(this,"Empleado "+idEmpleado+ " Eliminado Exitosamente",Toast.LENGTH_LONG).show();
         }
-
-        return super.onOptionsItemSelected(item);
+        helper.cerrar();
     }
 }

@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-    tools:context="fia.ues.sv.bolsatrabajo.EmpleadoInsertarActivity">
-    <TableRow>
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <!--<TableRow>
         <TextView android:text="@string/idEmpleado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -17,22 +12,27 @@
             android:inputType="text"
             android:enabled="false"
             />
-    </TableRow>
+    </TableRow>-->
 
-    <TableRow>
-        <TextView android:text="@string/nombreEmpleado" />
+
+        <TextView android:text="@string/nombreEmpleado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
         <EditText  android:id="@+id/editNombreEmpleado"
-                   android:inputType="text"/>
-    </TableRow>
-    <TableRow>
+                   android:inputType="textCapWords"
+            android:maxLength="50"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
     <TextView android:text="@string/duiEmpleado"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"/>
+        android:layout_width="wrap_content"/>
     <EditText android:id="@+id/editDuiEmpleado"
         android:inputType="number"
-        android:maxLength="9"/>
-</TableRow>
-    <TableRow>
+        android:maxLength="9"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
         <TextView android:text="@string/sexoEmpleado"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"/>
@@ -51,38 +51,43 @@
                 android:text="@string/sexoM"/>
                 <!--android:onClick="onRadioButtonClicked"-->
         </RadioGroup>
-    </TableRow>
-    <TableRow>
+
         <TextView
-            android:text="@string/edadEmpleado"/>
+            android:text="@string/edadEmpleado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
         <EditText android:id="@+id/editEdadEmpleado"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:inputType="number"/>
-    </TableRow>
-    <TableRow android:layout_height="fill_parent"
-        android:layout_width="fill_parent" >
+            android:layout_width="fill_parent"
+            android:inputType="number"
+            android:maxLength="2"/>
+
         <TextView
 
-            android:text="@string/direccionEmpleado"/>
+            android:text="@string/direccionEmpleado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <EditText android:id="@+id/editDireccionEmpleado"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:inputType="text" />
-    </TableRow>
-    <TableRow android:layout_height="fill_parent"
-        android:layout_width="fill_parent">
+            android:layout_width="fill_parent"
+            android:inputType="textMultiLine"
+            android:lines="3"
+            android:gravity="top"
+            android:maxLength="100"/>
+
         <TextView
-            android:text="@string/telefonoEmpleado"/>
+            android:text="@string/telefonoEmpleado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <EditText android:id="@+id/editTelefonoEmpleado"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:inputType="phone"
             android:maxLength="8"/>
-    </TableRow>
-    <TableRow android:layout_height="fill_parent"
+
+   <!-- <TableRow android:layout_height="fill_parent"
         android:layout_width="fill_parent">
         <TextView
             android:text="@string/cantAplicacionesEmpleado"/>
@@ -102,28 +107,29 @@
             android:layout_width="wrap_content"
             android:inputType="number"
             android:enabled="false" />
-    </TableRow>
 
 
 
-    <TableRow>
+-->
 
+<TableLayout android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <TableRow android:layout_height="wrap_content">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/insertar"
             android:id="@+id/buttonInsertarEmpleado"
+             android:onClick="insertarEmpleado"/>
 
-            android:textAlignment="center" />
-        <!-- android:onClick="insertarEmpleado"-->
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/limpiar"
             android:id="@+id/buttonLimpiarEmpleado"
-            android:textAlignment="center" />
-            <!--android:onClick="limpiarEmplado"-->
-
+            android:textAlignment="center"
+            android:onClick="limpiarEmpleado" />
     </TableRow>
-
 </TableLayout>
+
+</LinearLayout>
