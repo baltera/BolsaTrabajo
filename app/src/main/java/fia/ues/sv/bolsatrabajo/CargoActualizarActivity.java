@@ -23,7 +23,19 @@ public class CargoActualizarActivity extends Activity {
         editDescripcionCargof=(EditText)findViewById(R.id.editDescripcionCargof);
 
     }
-    public void actualizarCargo(){
+    public void consultarCargo(View v){
+        helper.abrir();
+        Cargo cargo = helper.consultarCargo(Integer.parseInt(editIdCargof.getText().toString()));
+        helper.cerrar();
+        if(cargo==null){
+            Toast.makeText(this,"El cargo con id:"+editIdCargof.getText().toString()+"no fue encontrado",Toast.LENGTH_LONG).show();
+        }
+        else{
+            editNombreCargof.setText(cargo.getNombreCargo());
+            editDescripcionCargof.setText(cargo.getDescripcionCargo());
+        }
+    }
+    public void actualizarCargo(View v){
         Cargo cargo= new Cargo();
         cargo.setIdCargo(Integer.parseInt(editIdCargof.getText().toString()));
         cargo.setNombreCargo(editNombreCargof.getText().toString());

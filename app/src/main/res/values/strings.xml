@@ -32,6 +32,11 @@
     <string name="eliminar">Eliminar</string>
     <string name="actualizar">Actualizar</string>
     <string name="limpiar">Limpiar</string>
+    <string name="modificarAplif">Modificar Aplicacion</string>
+    <string name="modificarCarf">Modificar Cargo</string>
+    <string name="spinnerEmpleado">Id Empleado</string>
+    <string name="spinnerOferta">Id oferta Laboral</string>
+    <string name="spinnerEmpresa">Id Empresa</string>
     <!-- Fin de strings FB12001 -->
     <!-- Strings SB12002 -->
     <string name="idReferencia">N° de Referencia:</string>

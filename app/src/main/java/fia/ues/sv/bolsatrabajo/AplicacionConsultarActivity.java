@@ -1,39 +1,61 @@
 package fia.ues.sv.bolsatrabajo;
-
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
-public class AplicacionConsultarActivity extends ActionBarActivity {
+public class AplicacionConsultarActivity extends Activity {
+    ControlBD helper;
+    EditText editIdAplicacionf;
+    EditText editIdEmpleado;
+    EditText editIdOfertaLaboralf;
+    EditText editIdEmpresa;
+    EditText editEstadoAplicacionf;
+    EditText editFechaAplicacionf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aplicacion_consultar);
+        helper= new ControlBD(this);
+        editIdAplicacionf= (EditText)findViewById(R.id.editIdAplicacionf);
+        editIdEmpleado=(EditText)findViewById(R.id.editIdEmpleado);
+        editIdOfertaLaboralf=(EditText)findViewById(R.id.editIdOfertaLaboralf);
+        editIdEmpresa=(EditText)findViewById(R.id.editIdEmpresa);
+        editFechaAplicacionf = (EditText)findViewById(R.id.editFechaAplicacionf);
+        editEstadoAplicacionf= (EditText)findViewById(R.id.editEstadoAplicacionf);
+
     }
+    // ya consulta aplicaciones
+    public void consultarAplicacion(View v){
+        int  idAplicacionf = Integer.valueOf(editIdAplicacionf.getText().toString());
+        int idEmleado= Integer.valueOf(editIdEmpleado.getText().toString());
+        int idOferta= Integer.valueOf(editIdOfertaLaboralf.getText().toString());
+        int idEmpresa= Integer.valueOf(editIdEmpresa.getText().toString());
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_aplicacion_consultar, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        helper.abrir();
+        Aplicacion apli=helper.consultarAplicacion(idAplicacionf,idEmleado,idOferta,idEmpresa);
+        helper.cerrar();
+        if (apli==null){
+            Toast.makeText(this,"La aplicacion con id:"+idAplicacionf+"no fue encontrada",Toast.LENGTH_LONG).show();
+        }
+        else{
+            editFechaAplicacionf.setText(apli.getFechaAplicacion());
+            editEstadoAplicacionf.setText(apli.getEstadoAplicacion());
         }
 
-        return super.onOptionsItemSelected(item);
+
+    }// fin consultar
+    public void limpiarTexto(View v){
+        editIdAplicacionf.setText("");
+        editIdEmpleado.setText("");
+        editIdOfertaLaboralf.setText("");
+        editIdEmpresa.setText("");
+        editFechaAplicacionf.setText("");
+        editEstadoAplicacionf.setText("");
     }
+
+
 }

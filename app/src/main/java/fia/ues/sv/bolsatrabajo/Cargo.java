@@ -4,7 +4,7 @@ package fia.ues.sv.bolsatrabajo;
  * Created by Mónica on 13/05/2015.
  */
 public class Cargo {
-    private Integer idCargo;
+    private int idCargo;
     private String  nombreCargo;
     private  String descripcionCargo;
 
@@ -12,17 +12,17 @@ public class Cargo {
 
     }
 
-    public Cargo(Integer idCargo, String nombreCargo, String descripcionCargo) {
+    public Cargo(int idCargo, String nombreCargo, String descripcionCargo) {
         this.idCargo = idCargo;
         this.nombreCargo = nombreCargo;
         this.descripcionCargo = descripcionCargo;
     }
 
-    public Integer getIdCargo() {
+    public int getIdCargo() {
         return idCargo;
     }
 
-    public void setIdCargo(Integer idCargo) {
+    public void setIdCargo(int idCargo) {
         this.idCargo = idCargo;
     }
 

@@ -1,39 +1,42 @@
 package fia.ues.sv.bolsatrabajo;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
-public class AplicacionEliminarActivity extends ActionBarActivity {
+public class AplicacionEliminarActivity extends Activity {
+    ControlBD helper;
+    EditText editIdAplicacionf;
+    EditText editIdEmpleado;
+    EditText editIdOfertaLaboralf;
+    EditText editIdEmpresa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aplicacion_eliminar);
+        helper= new ControlBD(this);
+        editIdAplicacionf= (EditText)findViewById(R.id.editIdAplicacionf);
+        editIdEmpleado=(EditText)findViewById(R.id.editIdEmpleado);
+        editIdOfertaLaboralf=(EditText)findViewById(R.id.editIdOfertaLaboralf);
+        editIdEmpresa=(EditText)findViewById(R.id.editIdEmpresa);
+    }
+    public void eliminarAplicacion(View v){
+        String regEliminados;
+        Aplicacion aplicacion = new Aplicacion();
+        aplicacion.setIdAplicacion(Integer.valueOf(editIdAplicacionf.getText().toString()));
+        aplicacion.setIdEmpleado(Integer.valueOf(editIdEmpleado.getText().toString()));
+        aplicacion.setIdOfertaLaboral(Integer.valueOf(editIdOfertaLaboralf.getText().toString()));
+        aplicacion.setIdEmpresa(Integer.valueOf(editIdEmpresa.getText().toString()));
+        helper.abrir();
+        regEliminados=helper.eliminar(aplicacion);
+        Toast.makeText(this,regEliminados,Toast.LENGTH_SHORT).show();
+
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_aplicacion_eliminar, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

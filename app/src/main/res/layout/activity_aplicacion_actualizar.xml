@@ -5,6 +5,41 @@
     android:paddingTop="30dip"
     android:stretchColumns="1" >
     <TableRow>
+        <TextView android:text="@string/idAplicacionf"/>
+        <EditText
+            android:id="@+id/editIdAplicacionf"
+            android:inputType="text"
+            android:maxLength="5" />
+    </TableRow>
+    <TableRow>
+        <TextView android:text="@string/idEmpleado"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+        <EditText
+            android:id="@+id/editIdEmpleado"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:inputType="text"
+            android:maxLength="5"/>
+    </TableRow>
+    <TableRow>
+        <TextView android:text="@string/idOfertaLaboralf"/>
+        <EditText android:id="@+id/editIdOfertaLaboralf"
+            android:inputType="text"
+            android:maxLength="5"/>
+
+    </TableRow>
+    <TableRow>
+        <TextView android:text="@string/idEmpresa"/>
+        <EditText android:id="@+id/editIdEmpresa"
+            android:inputType="text"
+            android:maxLength="5"/>
+    </TableRow>
+    <TableRow>
+        <Button android:onClick="consultarAplicacion"
+            android:text="@string/modificarAplif"/>
+    </TableRow>
+    <TableRow>
         <TextView android:text="@string/fechaAplicacionf"/>
         <EditText
             android:id="@+id/editFechaAplicacion"
@@ -22,7 +57,7 @@
     <LinearLayout>
         <Button
             android:onClick="actualizarAplicacion"
-            android:text="@string/insertar"
+            android:text="@string/actualizar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <Button

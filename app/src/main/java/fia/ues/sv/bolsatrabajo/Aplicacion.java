@@ -4,10 +4,10 @@ package fia.ues.sv.bolsatrabajo;
  * Created by Mónica on 13/05/2015.
  */
 public class Aplicacion {
-    private Integer idAplicacion;
-    private Integer idEmpleado;
-    private Integer  idOfertaLaboral;
-    private Integer idEmpresa;
+    private int idAplicacion;
+    private int idEmpleado;
+    private int  idOfertaLaboral;
+    private int idEmpresa;
     private String fechaAplicacion;
     private String estadoAplicacion;
 
@@ -15,7 +15,7 @@ public class Aplicacion {
 
     }
 
-    public Aplicacion(Integer idAplicacion, Integer idEmpleado, Integer idOfertaLaboral, Integer idEmpresa, String fechaAplicacion, String estadoAplicacion) {
+    public Aplicacion(int idAplicacion, int idEmpleado, int idOfertaLaboral, int idEmpresa, String fechaAplicacion, String estadoAplicacion) {
         this.idAplicacion = idAplicacion;
         this.idEmpleado = idEmpleado;
         this.idOfertaLaboral = idOfertaLaboral;
@@ -24,35 +24,35 @@ public class Aplicacion {
         this.estadoAplicacion = estadoAplicacion;
     }
 
-    public Integer getIdAplicacion() {
+    public int getIdAplicacion() {
         return idAplicacion;
     }
 
-    public void setIdAplicacion(Integer idAplicacion) {
+    public void setIdAplicacion(int idAplicacion) {
         this.idAplicacion = idAplicacion;
     }
 
-    public Integer getIdEmpleado() {
+    public int getIdEmpleado() {
         return idEmpleado;
     }
 
-    public void setIdEmpleado(Integer idEmpleado) {
+    public void setIdEmpleado(int idEmpleado) {
         this.idEmpleado = idEmpleado;
     }
 
-    public Integer getIdOfertaLaboral() {
+    public int getIdOfertaLaboral() {
         return idOfertaLaboral;
     }
 
-    public void setIdOfertaLaboral(Integer idOfertaLaboral) {
+    public void setIdOfertaLaboral(int idOfertaLaboral) {
         this.idOfertaLaboral = idOfertaLaboral;
     }
 
-    public Integer getIdEmpresa() {
+    public int getIdEmpresa() {
         return idEmpresa;
     }
 
-    public void setIdEmpresa(Integer idEmpresa) {
+    public void setIdEmpresa(int idEmpresa) {
         this.idEmpresa = idEmpresa;
     }
 

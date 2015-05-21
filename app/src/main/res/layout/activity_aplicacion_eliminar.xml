@@ -11,12 +11,35 @@
             android:inputType="text"
             android:maxLength="5" />
     </TableRow>
+    <TableRow>
+        <TextView android:text="@string/idEmpleado"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+        <EditText
+            android:id="@+id/editIdEmpleado"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:inputType="text"
+            android:maxLength="5"/>
+    </TableRow>
+    <TableRow>
+        <TextView android:text="@string/idOfertaLaboralf"/>
+        <EditText android:id="@+id/editIdOfertaLaboralf"
+            android:inputType="text"
+            android:maxLength="5"/>
+
+    </TableRow>
+    <TableRow>
+        <TextView android:text="@string/idEmpresa"/>
+        <EditText android:id="@+id/editIdEmpresa"
+            android:inputType="text"
+            android:maxLength="5"/>
+    </TableRow>
 
 
     <TableRow>
         <Button
             android:onClick="eliminarAplicacion"
             android:text="@string/eliminar" />
-
     </TableRow>
 </TableLayout>

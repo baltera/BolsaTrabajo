@@ -24,8 +24,8 @@ public class CargoInsertarActivity extends Activity {
         String nombreCargo=editNombreCargof.getText().toString();
         String descripcionCargo=editDescripcionCargof.getText().toString();
         String registrosInser;
+       // Toast.makeText(this,nombreCargo,Toast.LENGTH_LONG).show();
         Cargo cargo=new Cargo();
-        //cargo.setIdCargo(8);
         cargo.setNombreCargo(nombreCargo);
         cargo.setDescripcionCargo(descripcionCargo);
         helper.abrir();

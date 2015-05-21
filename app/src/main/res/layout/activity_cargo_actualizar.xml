@@ -5,6 +5,17 @@
     android:paddingTop="30dip"
     android:stretchColumns="1" >
     <TableRow>
+        <TextView android:text="@string/idCargof"/>
+        <EditText
+            android:id="@+id/editIdCargof"
+            android:inputType="text"
+            android:maxLength="5" />
+    </TableRow>
+    <TableRow>
+        <Button android:onClick="consultarCargo"
+            android:text="@string/modificarCarf"/>
+    </TableRow>
+    <TableRow>
         <TextView android:text="@string/nombreCargof"/>
         <EditText
             android:id="@+id/editNombreCargof"

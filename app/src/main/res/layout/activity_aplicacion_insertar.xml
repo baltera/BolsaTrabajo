@@ -5,6 +5,26 @@
     android:paddingTop="30dip"
     android:stretchColumns="1" >
     <TableRow>
+        <TextView android:text="@string/spinnerEmpleado"/>
+        <Spinner android:id="@+id/editSpinnerEmpleado"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent" />
+
+    </TableRow>
+    <TableRow>
+        <TextView android:text="@string/spinnerEmpresa"/>
+        <Spinner android:id="@+id/editSpinnerEmpresa"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent" />
+        <!--android:prompt="@string/"-->
+    </TableRow>
+    <TableRow>
+        <TextView android:text="@string/spinnerOferta"/>
+        <Spinner android:id="@+id/editSpinnerOferta"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent" />
+    </TableRow>
+    <TableRow>
         <TextView android:text="@string/fechaAplicacionf"/>
         <EditText
             android:id="@+id/editFechaAplicacionf"
