@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@color/background_material_dark">
 
 
     <TextView
@@ -12,7 +13,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
-        android:textColor="#ff352e2c"
+        android:textColor="#ff50fa46"
         android:theme="@android:style/Animation"
         android:textSize="32dp" />
 
@@ -24,7 +25,8 @@
         android:src="@drawable/botoninsertar"
         android:layout_marginTop="70dp"
         android:layout_below="@+id/TVtablaReferencia"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@color/background_material_dark" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -34,7 +36,8 @@
         android:src="@drawable/botoneliminar"
         android:layout_below="@+id/insertarImgBoton"
         android:layout_alignLeft="@+id/insertarImgBoton"
-        android:layout_alignStart="@+id/insertarImgBoton" />
+        android:layout_alignStart="@+id/insertarImgBoton"
+        android:background="@color/background_material_dark" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -44,7 +47,8 @@
         android:src="@drawable/botonmodificar"
         android:layout_below="@+id/eliminarImgBoton"
         android:layout_alignLeft="@+id/eliminarImgBoton"
-        android:layout_alignStart="@+id/eliminarImgBoton" />
+        android:layout_alignStart="@+id/eliminarImgBoton"
+        android:background="@color/background_material_dark" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -52,6 +56,7 @@
         android:id="@+id/consultarImgBoton"
         android:onClick="consultarReferencia"
         android:src="@drawable/botonconsultar"
+        android:background="@color/background_material_dark"
         android:layout_below="@+id/modificarImgBoton"
         android:layout_alignLeft="@+id/modificarImgBoton"
         android:layout_alignStart="@+id/modificarImgBoton" />

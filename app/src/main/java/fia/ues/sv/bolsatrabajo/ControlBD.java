@@ -134,9 +134,9 @@ public class ControlBD {
 
     }
 
-    public Referencia consultarReferencia(String idReferencia){
-        String[] id={idReferencia};
-        Cursor cursor=db.query("REFERENCIA",camposReferencia,"ID_REFERENCIA= ?",id,null,null,null);
+    public Referencia consultarReferencia(String idReferencia,String idEmpelado){
+        String[] id={idReferencia,idEmpelado};
+        Cursor cursor=db.query("REFERENCIA",camposReferencia,"ID_REFERENCIA= ? and ID_EMPLEADO= ?",id,null,null,null);
 
         if(cursor.moveToFirst()){
             Referencia referencia=new Referencia();

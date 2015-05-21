@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="#ff61697a">
 
 
     <TextView
@@ -12,7 +13,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
-        android:textColor="#ff352e2c"
+        android:textColor="#ffd25a56"
         android:theme="@android:style/Animation"
         android:textSize="27dp" />
 
@@ -26,7 +27,8 @@
         android:layout_below="@+id/TVtablaGradoEspecializacion"
         android:layout_alignLeft="@+id/modificarImgBoton"
         android:layout_alignStart="@+id/modificarImgBoton"
-        android:layout_marginTop="92dp" />
+        android:layout_marginTop="92dp"
+        android:background="#ff61697a" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -37,7 +39,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_below="@+id/insertarImgBoton"
         android:layout_alignLeft="@+id/insertarImgBoton"
-        android:layout_alignStart="@+id/insertarImgBoton" />
+        android:layout_alignStart="@+id/insertarImgBoton"
+        android:background="#ff61697a" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -48,7 +51,8 @@
         android:adjustViewBounds="true"
         android:layout_gravity="center_horizontal"
         android:layout_below="@+id/eliminarImgBoton"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="#ff61697a" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -58,6 +62,7 @@
         android:src="@drawable/botonconsultar"
         android:layout_gravity="center_horizontal"
         android:layout_below="@+id/modificarImgBoton"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="#ff61697a" />
 
 </RelativeLayout>

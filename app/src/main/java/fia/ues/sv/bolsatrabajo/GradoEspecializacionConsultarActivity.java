@@ -39,6 +39,16 @@ public class GradoEspecializacionConsultarActivity extends ActionBarActivity {
             editDuracionEspec.setText(String.valueOf(especializacion.getDuracion_especializacion()));
 
         }
+
+
     }
 
+    public void limpiarTexto(View view){
+
+        editEspecializacion.setText("");
+        editNombreEspecializacion.setText("");
+        editIdInstituto.setText("");
+        editDuracionEspec.setText("");
+
+    }
 }
