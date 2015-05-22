@@ -26,7 +26,7 @@ public class CargoEliminarActivity extends Activity {
         helper.abrir();
         regEliminadas = helper.eliminar(cargo);
         helper.cerrar();
-        Toast.makeText(this, regEliminadas, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,regEliminadas, Toast.LENGTH_SHORT).show();
 
 
     }

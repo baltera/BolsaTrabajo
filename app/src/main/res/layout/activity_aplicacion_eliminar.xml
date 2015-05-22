@@ -1,41 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="fill_parent"
     android:paddingTop="30dip"
-    android:stretchColumns="1" >
+    android:stretchColumns="1"
+    android:background="#ffc6baff">
     <TableRow>
         <TextView android:text="@string/idAplicacionf"/>
         <EditText
-            android:id="@+id/editIdAplicacion"
+            android:id="@+id/editIdAplicacionf"
             android:inputType="text"
             android:maxLength="5" />
     </TableRow>
     <TableRow>
-        <TextView android:text="@string/idEmpleado"
+        <TextView android:text="@string/spinnerEmpleado"/>
+        <Spinner android:id="@+id/editSpinnerEmpleado"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"/>
-        <EditText
-            android:id="@+id/editIdEmpleado"
-            android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
-            android:inputType="text"
-            android:maxLength="5"/>
-    </TableRow>
-    <TableRow>
-        <TextView android:text="@string/idOfertaLaboralf"/>
-        <EditText android:id="@+id/editIdOfertaLaboralf"
-            android:inputType="text"
-            android:maxLength="5"/>
+            android:layout_width="fill_parent" />
 
     </TableRow>
     <TableRow>
-        <TextView android:text="@string/idEmpresa"/>
-        <EditText android:id="@+id/editIdEmpresa"
-            android:inputType="text"
-            android:maxLength="5"/>
+        <TextView android:text="@string/spinnerEmpresa"/>
+        <Spinner android:id="@+id/editSpinnerEmpresa"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent" />
+        <!--android:prompt="@string/"-->
     </TableRow>
-
+    <TableRow>
+        <TextView android:text="@string/spinnerOferta"/>
+        <Spinner android:id="@+id/editSpinnerOferta"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent" />
+    </TableRow>
 
     <TableRow>
         <Button

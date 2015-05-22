@@ -50,7 +50,7 @@ public class ControlBD {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            String sqlCreateApl="create table APLICACION(ID_APLICACION integer not null, ID_EMPLEADO integer not null, ID_OFERTALABORAL integer not null, ID_EMPRESA integer, FECHA_APLICACION  varchar(30), ESTADO_APLICACION varchar(20), primary key (ID_APLICACION,ID_EMPLEADO,ID_OFERTALABORAL,ID_EMPRESA));";
+            String sqlCreateApl="create table APLICACION(ID_APLICACION integer not null primary key autoincrement, ID_EMPLEADO integer not null, ID_OFERTALABORAL integer not null, ID_EMPRESA integer not null, FECHA_APLICACION  varchar(30)not null, ESTADO_APLICACION varchar(20)not null);";
             String sqlCreateCar="create table CARGO(ID_CARGO integer not null primary key autoincrement, NOMBRE_CARGO varchar(60) not null, DESCRIPCION_CARGO varchar(140) not null);";
             String sqlCreateDetEst="create table DETALLEESTUDIO(ID_DETALLEEST integer not null, ID_EMPLEADO integer, ID_ESPECIALIZACION integer, ID_INSTITUTOESTUDIO integer, ANYOGRADUACION_DETALLEEST integer, primary key (ID_DETALLEEST,ID_EMPLEADO));";
             String sqlCreateEmpl="create table EMPLEADO(ID_EMPLEADO integer not null, NOMBRE_EMPLEADO varchar(50) not null, DUI_EMPLEADO integer not null, SEXO_EMPLEADO varchar(1) not null, EDAD_EMPLEADO integer not null, DIRECCION_EMPLEADO varchar(100) not null, TELEFONO_EMPLEADO integer not null, CANTAPLICACIONES_EMPLEADO integer, CANTREFERENCIAS_EMPLEADO integer,primary key (ID_EMPLEADO));";
@@ -171,7 +171,7 @@ public class ControlBD {
         String registrosInser="Registro insertado N°= ";
         long contador=0;
         ContentValues apli = new ContentValues();
-        apli.put("ID_APLICACION",aplicacion.getIdAplicacion());
+        //apli.put("ID_APLICACION",aplicacion.getIdAplicacion());
         apli.put("ID_EMPLEADO",aplicacion.getIdEmpleado());
         apli.put("ID_EMPRESA",aplicacion.getIdEmpresa());
         apli.put("ID_OFERTALABORAL",aplicacion.getIdOfertaLaboral());
@@ -219,10 +219,10 @@ public class ControlBD {
     }
     public String eliminar(Aplicacion aplicacion){
         //falta revisar integridad
-        String regAfectados="filas Afectadas = ";
+        String regAfectados="filas Afectadas =  ";
         int contador=0;
-        contador+=db.delete("APLICACION", "ID_APLICACION='"+aplicacion.getIdAplicacion()+"'"+"ID_EMPLEADO='"+aplicacion.getIdEmpleado()+"'"+
-                "ID_OFERTALABORAL='"+aplicacion.getIdOfertaLaboral()+"'"+"ID_EMPRESA='"+aplicacion.getIdEmpresa()+"'", null);
+        contador+=db.delete("APLICACION","ID_APLICACION='"+aplicacion.getIdAplicacion()+"'"+"AND ID_EMPLEADO='"+aplicacion.getIdEmpleado()+"'"+
+                "AND ID_OFERTALABORAL='"+aplicacion.getIdOfertaLaboral()+"'"+"AND ID_EMPRESA='"+aplicacion.getIdEmpresa()+"'", null);
         regAfectados+=contador;
         return regAfectados;
 
@@ -244,6 +244,38 @@ public class ControlBD {
         }
 
         return ids;
+    }
+    public List<String> recuperarEmpresa(){
+        List<String> idem=new ArrayList<String>();
+        Cursor cursor =db.query("cargo",camposCargo,null,null,null,null,null);//para probar esta con la tabla cargo , cambiar a la tabla Empresa despues
+        if(cursor.moveToFirst()){
+            do{
+                idem.add(cursor.getString(0));
+            }while(cursor.moveToNext());
+        }
+        else{
+            idem.add("nohay");
+            return idem;
+        }
+
+        return idem;
+
+    }
+
+    public List<String> recuperarOferta(){
+        List<String> idem=new ArrayList<String>();
+        Cursor cursor =db.query("cargo",camposCargo,null,null,null,null,null);//para probar esta con la tabla cargo , cambiar a la tabla ofertalaboraL  despues
+        if(cursor.moveToFirst()){
+            do{
+                idem.add(cursor.getString(0));
+            }while(cursor.moveToNext());
+        }
+        else{
+            idem.add("nohay");
+            return idem;
+        }
+
+        return idem;
     }
 
 
