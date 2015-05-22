@@ -12,6 +12,14 @@ public class ExperienciaLaboral {
 
     public ExperienciaLaboral(){}
 
+    public ExperienciaLaboral(int idExpLaboral,int idEmpleado, int  idEmpresa, int idCargo, int duracionExpLaboral){
+        this.idExpLaboral=idExpLaboral;
+        this.idEmpleado=idEmpleado;
+        this.idCargo=idCargo;
+        this.idEmpresa=idEmpresa;
+        this.duracionExpLaboral=duracionExpLaboral;
+    }
+
     public int getIdExpLaboral() {
         return idExpLaboral;
     }

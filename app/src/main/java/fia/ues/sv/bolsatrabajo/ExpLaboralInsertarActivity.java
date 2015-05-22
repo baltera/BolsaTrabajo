@@ -1,5 +1,6 @@
 package fia.ues.sv.bolsatrabajo;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,47 +9,48 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ExpLaboralInsertarActivity extends ActionBarActivity implements AdapterView.OnItemSelectedListener {
-    Spinner spinnerIdEmpleadoEL;
+public class ExpLaboralInsertarActivity extends Activity implements AdapterView.OnItemSelectedListener {
+
     Spinner spinnerIdEmpresaEL;
     Spinner spinnerIdCargoEL;
     Button buttonInsertarEL;
     ControlBD helper;
-
+    String resultadoEmpresa;
+    String resultadoCargo;
+    EditText idEmpleadoEL;
+    EditText duracionExpLab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exp_laboral_insertar);
         helper= new ControlBD(this);
-        spinnerIdEmpleadoEL=(Spinner)findViewById(R.id.spinnerIdEmpleado);
         spinnerIdEmpresaEL=(Spinner)findViewById(R.id.spinnerIdEmpresa);
         spinnerIdCargoEL=(Spinner)findViewById(R.id.spinnerIdCargo);
         buttonInsertarEL=(Button) findViewById(R.id.buttonInsertarEL);
-
-
-        helper.abrir();
+        idEmpleadoEL = (EditText)findViewById(R.id.idEmpleadoEL);
+        duracionExpLab=(EditText)findViewById(R.id.duracionExpLab);
         List<String> idEmpresas =  new ArrayList<String>();
-        List<String> idEmpleado = new ArrayList<String>();
         List<String> idCargo= new ArrayList<String>();
+        helper.abrir();
+        helper.insertarEmpresa();
+        helper.insertarCargo();
         idEmpresas = helper.obtenerIdEmpresas();
-        idEmpleado=helper.obtenerIdEmpleado();
         idCargo=helper.obtenerIdCargo();
         helper.cerrar();
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, idEmpresas);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerIdEmpresaEL.setAdapter(arrayAdapter);
         spinnerIdEmpresaEL.setOnItemSelectedListener(this);
-        ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,idEmpleado);
-        arrayAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerIdEmpleadoEL.setAdapter(arrayAdapter1);
-        spinnerIdEmpleadoEL.setOnItemSelectedListener(this);
+
         ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,idCargo);
         arrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerIdCargoEL.setAdapter(arrayAdapter2);
@@ -83,11 +85,43 @@ public class ExpLaboralInsertarActivity extends ActionBarActivity implements Ada
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        switch (adapterView.getId())
+        {
+            case R.id.spinnerIdEmpresa:
+
+                resultadoEmpresa=adapterView.getItemAtPosition(i).toString();
+                Toast.makeText(this, "Seleccionado " + resultadoEmpresa, Toast.LENGTH_LONG).show();
+
+                break;
+
+            case R.id.spinnerIdCargo:
+
+                resultadoCargo=adapterView.getItemAtPosition(i).toString();
+                 Toast.makeText(this,"Seleccionado "+ resultadoCargo, Toast.LENGTH_LONG).show();
+
+                break;
+        }
 
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
+    resultadoEmpresa=adapterView.getItemAtPosition(0).toString();
+    resultadoCargo=adapterView.getItemAtPosition(0).toString();
+
+    }
+
+    public void insertarExpLab(View v){
+        String res;
+        helper.abrir();
+        Empleado empleado=helper.consultarEmpleado(idEmpleadoEL.getText().toString());
+        if(empleado==null)
+        {Toast.makeText(this,"EL EMPLEADO "+idEmpleadoEL.getText().toString()+" NO EXISTE",Toast.LENGTH_LONG).show();}
+        else{
+            Toast.makeText(this,"empleado existe",Toast.LENGTH_SHORT).show();
+          res=helper.insertarExpLab(idEmpleadoEL.getText().toString(),resultadoEmpresa,resultadoCargo,duracionExpLab.getText().toString());
+            Toast.makeText(this,res,Toast.LENGTH_LONG).show();
+        }
 
     }
 }

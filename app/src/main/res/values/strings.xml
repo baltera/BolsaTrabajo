@@ -87,6 +87,17 @@
     <string name="idEmpresaExpLab">Proporcione el ID de Empresa: </string>
     <string name="idCargoExpLab">Proporcione el ID del Cargo: </string>
     <string name="insertarEL">Ingresar Mi experiencia Laboral</string>
+    <string name="duracionExpLab">Ingrese la duracion(en meses): </string>
+    <string name="idExpLab">Ingrese el ID de Experiencia Laboral:</string>
+    <string name="eliminarEL">Eliminar esta Experiencia Laboral</string>
+    <style name="EstilosTexto"></style>
+    <style name="estilosMariaJose" parent="@style/EstilosTexto">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#FFF</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:background">#009966</item>
+    </style>
+    <string name="autor">Realizado por: Maria Jose Flores Ramos</string>
     <!--fin Strings FR12001-->
     <!--Inicio RG12001-->
     <string name="title_activity_oferta_laboral">OfertaLaboralActivity</string>

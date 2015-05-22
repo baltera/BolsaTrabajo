@@ -1,10 +1,20 @@
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
 
-
+    <TextView android:text="CONSULTAR EMPLEADO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
+        android:id="@+id/textView10" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -124,7 +134,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editConsultarDirecEmp"
-        android:inputType="number"
+        android:inputType="textMultiLine"
+        android:lines="3"
         android:enabled="false"
         android:focusable="false"
         android:focusableInTouchMode="false"
@@ -182,8 +193,13 @@
         android:cursorVisible="false"
         android:longClickable="false"
          />
-
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/autor"
+        android:id="@+id/textautor"/>
 
 
 </LinearLayout>
 </LinearLayout>
+</ScrollView>

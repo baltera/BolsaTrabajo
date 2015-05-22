@@ -1,17 +1,38 @@
 package fia.ues.sv.bolsatrabajo;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
-public class ExpLaboralModificarActivity extends ActionBarActivity {
+public class ExpLaboralModificarActivity extends Activity {
+    EditText idExpLabModificar;
+    EditText idEmpleadoELModificar;
+    Button  buttonModificarExpLab;
+    Button  buttonActualizarELModificar;
+    EditText idEmpresaELModificar;
+    EditText    idCargoELModificar;
+    EditText duracionELModificar;
+    ControlBD helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exp_laboral_modificar);
+        idExpLabModificar=(EditText)findViewById(R.id.idExpLabModificar);
+        idEmpleadoELModificar=(EditText)findViewById(R.id.idEmpleadoELModificar);
+        idEmpresaELModificar=(EditText)findViewById(R.id.idEmpresaELModificar);
+        idCargoELModificar=(EditText)findViewById(R.id.idCargoELModificar);
+        duracionELModificar=(EditText)findViewById(R.id.duracionELModificar);
+        buttonActualizarELModificar=(Button)findViewById(R.id.buttonActualizarELModificar);
+        buttonModificarExpLab=(Button)findViewById(R.id.buttonModificarExpLab);
+        helper=new ControlBD(this);
     }
 
 
@@ -36,4 +57,49 @@ public class ExpLaboralModificarActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-}
+
+    public void modificarEL(View v){
+        helper.abrir();
+        ExperienciaLaboral el= helper.verificarIntegridadConsultar(idExpLabModificar.getText().toString(),idEmpleadoELModificar.getText().toString());
+        helper.cerrar();
+        if (el == null) {
+            Toast.makeText(this, "Empleado " + idEmpleadoELModificar.getText().toString() + " Inexistente", Toast.LENGTH_LONG).show();
+        } else {
+            idEmpresaELModificar.setText(String.valueOf(el.getIdEmpresa()));
+            idCargoELModificar.setText(String.valueOf(el.getIdCargo()));
+            duracionELModificar.setText(String.valueOf(el.getDuracionExpLaboral()));
+            buttonActualizarELModificar.setEnabled(true);
+            idExpLabModificar.setEnabled(false);
+            idEmpleadoELModificar.setEnabled(false);
+        }
+
+    }
+    public void actualizarEL(View v){
+        ExperienciaLaboral el= new ExperienciaLaboral();
+        el.setIdExpLaboral(Integer.parseInt(idExpLabModificar.getText().toString()));
+        el.setIdEmpleado(Integer.parseInt(idEmpleadoELModificar.getText().toString()));
+        el.setIdEmpresa(Integer.parseInt(idEmpresaELModificar.getText().toString()));
+        el.setIdCargo(Integer.parseInt(idCargoELModificar.getText().toString()));
+        el.setDuracionExpLaboral(Integer.parseInt(duracionELModificar.getText().toString()));
+        helper.abrir();
+        String res=helper.actualizarEL(el);
+        Toast.makeText(this,res,Toast.LENGTH_LONG).show();
+
+
+
+        }
+    public void limpiarModificarEL(View v){
+        idExpLabModificar.setText("");
+        idExpLabModificar.setEnabled(true);
+        idEmpleadoELModificar.setText("");
+        idEmpleadoELModificar.setEnabled(true);
+        buttonActualizarELModificar.setEnabled(false);
+        idEmpresaELModificar.setText("");
+        idCargoELModificar.setText("");
+        duracionELModificar.setText("");
+
+    }
+
+
+    }
+

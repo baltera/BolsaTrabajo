@@ -23,7 +23,7 @@ public class FR12001Activity extends ListActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_fr12001);
         ListView listView = getListView();
-        listView.setBackgroundColor(Color.parseColor("#CC6699"));
+        //listView.setBackgroundColor(Color.parseColor("#CC6699"));
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menu);
         setListAdapter(adapter);
     }
@@ -32,7 +32,7 @@ public class FR12001Activity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         String nombreValue = activities[position];
-        l.getChildAt(position).setBackgroundColor(Color.parseColor("#CC9999"));
+       // l.getChildAt(position).setBackgroundColor(Color.parseColor("#CC9999"));
         try {
             Class<?> clase = Class.forName("fia.ues.sv.bolsatrabajo." +nombreValue);
             Intent inte = new Intent(this, clase);

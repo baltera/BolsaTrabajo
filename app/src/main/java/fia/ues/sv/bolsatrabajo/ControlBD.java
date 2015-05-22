@@ -18,6 +18,7 @@ import java.util.List;
 public class ControlBD {
 /*CAMPOS DE FR12001*/
    private static final String[] camposEmpleado= new String[]{"NOMBRE_EMPLEADO","DUI_EMPLEADO","SEXO_EMPLEADO","EDAD_EMPLEADO","DIRECCION_EMPLEADO","TELEFONO_EMPLEADO","CANTAPLICACIONES_EMPLEADO","CANTREFERENCIAS_EMPLEADO"};
+   private static final String[] camposConsultaEL= new String[]{"ID_EMPRESA","ID_CARGO","DURACION_EXPERIENCIALABORAL"};
     /*FIN FR12001*/
 
     private final Context context;
@@ -41,11 +42,11 @@ public class ControlBD {
         public void onCreate(SQLiteDatabase db){
         //SCRIPT SQLite CREACION BD DIVIDIDO POR INSTRUCCIONES
         String sqlCreateApl="create table APLICACION(ID_APLICACION integer not null, ID_EMPLEADO integer not null, ID_OFERTALABORAL integer not null, ID_EMPRESA integer, FECHA_APLICACION  varchar(30), ESTADO_APLICACION varchar(20), primary key (ID_APLICACION,ID_EMPLEADO,ID_OFERTALABORAL,ID_EMPRESA));";
-        String sqlCreateCar="create table CARGO(ID_CARGO integer not null, NOMBRE_CARGO varchar(60) not null, DESCRIPCION_CARGO varchar(140) not null, primary key (ID_CARGO));";
+        String sqlCreateCar="create table CARGO(ID_CARGO integer not null primary key autoincrement, NOMBRE_CARGO varchar(60) not null, DESCRIPCION_CARGO varchar(140) not null);";
         String sqlCreateDetEst="create table DETALLEESTUDIO(ID_DETALLEEST integer not null, ID_EMPLEADO integer, ID_ESPECIALIZACION integer, ID_INSTITUTOESTUDIO integer, ANYOGRADUACION_DETALLEEST integer, primary key (ID_DETALLEEST,ID_EMPLEADO));";
-        String sqlCreateEmpl="create table EMPLEADO(ID_EMPLEADO integer not null, NOMBRE_EMPLEADO varchar(50) not null, DUI_EMPLEADO integer not null, SEXO_EMPLEADO varchar(1) not null, EDAD_EMPLEADO integer not null, DIRECCION_EMPLEADO varchar(100) not null, TELEFONO_EMPLEADO integer not null, CANTAPLICACIONES_EMPLEADO integer, CANTREFERENCIAS_EMPLEADO integer,primary key (ID_EMPLEADO));";
-        String sqlCreateEmp="create table EMPRESA(ID_EMPRESA integer not null, NOMBRE_EMPRESA varchar(50) not null, NIT_EMPRESA varchar(25) not null, DIR_EMPRESA varchar(50) not null, TEL_EMPRESA varchar(10), CANTOFERTAS_EMPRESA  integer NOT NULL, primary key (ID_EMPRESA));";
-        String sqlCreateExpLab="create table EXPERIENCIALABORAL(ID_EXPERIENCIALABORAL integer not null, ID_EMPLEADO  integer not null, ID_EMPRESA integer not null, ID_CARGO integer not null, DURACION_EXPERIENCIALABORAL integer not null, primary key (ID_EXPERIENCIALABORAL,ID_EMPLEADO));";
+        String sqlCreateEmpl="create table EMPLEADO(ID_EMPLEADO integer not null primary key autoincrement, NOMBRE_EMPLEADO varchar(50) not null, DUI_EMPLEADO integer not null, SEXO_EMPLEADO varchar(1) not null, EDAD_EMPLEADO integer not null, DIRECCION_EMPLEADO varchar(100) not null, TELEFONO_EMPLEADO integer not null, CANTAPLICACIONES_EMPLEADO integer, CANTREFERENCIAS_EMPLEADO integer);";
+        String sqlCreateEmp="create table EMPRESA(ID_EMPRESA integer not null primary key autoincrement, NOMBRE_EMPRESA varchar(50) not null, NIT_EMPRESA varchar(25) not null, DIR_EMPRESA varchar(50) not null, TEL_EMPRESA varchar(10), CANTOFERTAS_EMPRESA  integer NOT NULL);";
+        String sqlCreateExpLab="create table EXPERIENCIALABORAL(ID_EXPERIENCIALABORAL integer not null primary key autoincrement , ID_EMPLEADO  integer not null, ID_EMPRESA integer not null, ID_CARGO integer not null, DURACION_EXPERIENCIALABORAL integer not null);";
         String sqlCreateGraEsp="create table GRADOESPECIALIZACION(ID_ESPECIALIZACION integer not null, ID_INSTITUTOESTUDIO  integer, NOMBRE_ESPECIALIZACION varchar(50) not null, DURACION_ESPECIALIZACION integer,primary key (ID_ESPECIALIZACION,ID_INSTITUTOESTUDIO));";
         String sqlCreateInsEst="create table INSTITUTOESTUDIO(ID_INSTITUTOESTUDIO integer not null, NOMBRE_INSTITUTOESTUDIO varchar(100) not null, MUNICIPIO_INSTITUTOESTUDIO varchar(30) not null, DEPARTAMENTO_INSTITUTOESTUDIO varchar(30) not null, primary key (ID_INSTITUTOESTUDIO));";
         String sqlCreateOfeLab="create table OFERTALABORAL(ID_OFERTALABORAL integer not null, ID_EMPRESA integer not null, ID_CARGO integer not null, FECHAPUBLICACION_OFERTALABORAL varchar(30) not null, FECHAEXPIRACION_OFERTALABORAL varchar(30) not null, primary key (ID_OFERTALABORAL,ID_EMPRESA));";
@@ -90,7 +91,7 @@ public class ControlBD {
         long contador;
 
         ContentValues emple = new ContentValues();
-        emple.put("ID_EMPLEADO",empleado.getId());
+        //emple.put("ID_EMPLEADO",empleado.getId());
         emple.put("NOMBRE_EMPLEADO",empleado.getNombre_empleado());
         emple.put("DUI_EMPLEADO",empleado.getDui_empleado());
         emple.put("SEXO_EMPLEADO",empleado.getSexo_empleado());
@@ -178,19 +179,7 @@ public class ControlBD {
         return lista;
 
     }
-    public List<String> obtenerIdEmpleado(){
-        List<String> lista = new ArrayList<String>();
-        Cursor cursor = db.rawQuery("SELECT ID_EMPLEADO FROM EMPLEADO", null);
-        if (cursor.moveToFirst()) {
-            do {
-                lista.add(cursor.getString(0));
-            } while (cursor.moveToNext());
-        } else{
-            lista.add("NO HAY DATOS DISPONBLES");
-        }
-        return lista;
 
-    }
     public List<String> obtenerIdCargo(){
         List<String> lista = new ArrayList<String>();
         Cursor cursor = db.rawQuery("SELECT ID_CARGO FROM CARGO", null);
@@ -204,10 +193,106 @@ public class ControlBD {
         return lista;
 
     }
+    //Clases prueba para llenar tabla Cargo
+    public void insertarCargo() {
+        ContentValues values = new ContentValues();
+        for (int i = 0; i <= 3; i++) {
+            values.put("NOMBRE_CARGO", "nombre " + i);
+            values.put("DESCRIPCION_CARGO", "Descripcion " + i);
+            db.insert("CARGO", null, values);
+        }
+    }
+    public void insertarEmpresa() {
+        ContentValues values = new ContentValues();
+        for (int i = 0; i <= 3; i++) {
+            values.put("NOMBRE_EMPRESA", "nombre " + i);
+            values.put("NIT_EMPRESA", "NIT " + i);
+            values.put("DIR_EMPRESA", "DIRECCION " + i);
+            values.put("NIT_EMPRESA", "NIT " + i);
+            values.put("TEL_EMPRESA", "TEL " + i);
+            values.put("CANTOFERTAS_EMPRESA", i + 1);
+            db.insert("EMPRESA", null, values);
+        }
+    }
+        public String insertarExpLab(String idEmpleado,String idEmpresa,String idCargo,String duracion){
+        String regInsertado;
+        long contador;
+            ContentValues content= new ContentValues();
+            content.put("ID_EMPLEADO",Integer.parseInt(idEmpleado));
+            content.put("ID_EMPRESA",Integer.parseInt(idEmpresa));
+            content.put("ID_CARGO",Integer.parseInt(idCargo));
+            content.put("DURACION_EXPERIENCIALABORAL", Integer.parseInt(duracion));
+            contador=db.insert("EXPERIENCIALABORAL",null,content);
+            if(contador ==-1 || contador==0)
+            {regInsertado="Error de Insercion";}
+            else{regInsertado="Se ingreso la Experiencia Laboral ="+contador;}
+            return  regInsertado;
 
+    }
+    public ExperienciaLaboral verificarIntegridadConsultar(String idExpLab,String idEmpleado){
+        String[] id={idExpLab,idEmpleado};
+        ExperienciaLaboral el= new ExperienciaLaboral();
 
+        Cursor cursor=db.rawQuery("select * FROM EXPERIENCIALABORAL WHERE ID_EXPERIENCIALABORAL=? AND ID_EMPLEADO=?", id);
+        if(cursor.moveToFirst())
+        {
+            el.setIdEmpresa(cursor.getInt(2));
+            el.setIdCargo(cursor.getInt(3));
+            el.setDuracionExpLaboral(cursor.getInt(4));
+            return el;
+        }else {return  null;}
+
+    }
+   /* public String insertarELPrueba() {
+       long contador=0;
+        String regInsertados= "Agrego ";
+        ContentValues values = new ContentValues();
+       // values.put("ID_EXPERIENCIALABORAL",1);
+        values.put("ID_EMPLEADO", 1);
+        values.put("ID_EMPRESA",2);
+        values.put("ID_CARGO", 3);
+        values.put("DURACION_EXPERIENCIALABORAL",4);
+         contador=db.insert("EXPERIENCIALABORAL", null, values);
+        if(contador == -1 || contador==0)
+        { regInsertados="Error al insertar Registro,Verificar insercion";}
+        else{ regInsertados=regInsertados+contador;}
+        return regInsertados;
+
+    }*/
+    public String actualizarEL(ExperienciaLaboral el){
+        String regInsertado;
+        String id[]={Integer.toString(el.getIdExpLaboral())};
+        ContentValues elab=new ContentValues();
+        elab.put("ID_EMPRESA",el.getIdEmpresa());
+        elab.put("ID_CARGO",el.getIdCargo());
+        elab.put("DURACION_EXPERIENCIALABORAL",el.getDuracionExpLaboral());
+        long contador=db.update("EXPERIENCIALABORAL",elab,"ID_EXPERIENCIALABORAL=?",id);
+        if (contador==0||contador==-1)
+        {regInsertado="ERROR DE INSERCION";}
+        else
+        {regInsertado="Datos actualizados Correctamente";}
+        return regInsertado;
+    }
+
+    public String eliminarEL(String idExpLab){
+        String[] id={idExpLab};
+        String regAfectados;
+        int contador=0;
+        Cursor cursor=db.rawQuery("SELECT * FROM EXPERIENCIALABORAL WHERE ID_EXPERIENCIALABORAL=?", id);
+        if (cursor.moveToFirst()==false || idExpLab==null)
+        {regAfectados="Imposible Borrar:No se ha encontrado la Experiencia Laboral";}
+        else
+        { contador+=db.delete("EXPERIENCIALABORAL","ID_EXPERIENCIALABORAL = ?",id);
+        regAfectados="Experiencia Laboral Eliminada ";}
+        return regAfectados;
+
+    }
     /*FIN FR12001*/
     }
+
+
+
+
 
 
 

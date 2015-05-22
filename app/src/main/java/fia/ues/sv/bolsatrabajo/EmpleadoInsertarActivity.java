@@ -50,8 +50,8 @@ public class EmpleadoInsertarActivity extends Activity {
         else {
              Empleado empleado = new Empleado();
              helper.abrir();
-             int idL = helper.buscarId() + 1;
-             empleado.setId(idL);
+             //int idL = helper.buscarId() + 1;
+             //empleado.setId(idL);
              empleado.setNombre_empleado(nombre);
              empleado.setDui_empleado(Integer.parseInt(dui));
              if (radio_femenino.isChecked()) {

@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
     <!--<TableRow>
         <TextView android:text="@string/idEmpleado"
@@ -13,7 +18,11 @@
             android:enabled="false"
             />
     </TableRow>-->
-
+    <TextView android:text="NUEVO EMPLEADO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"/>
 
         <TextView android:text="@string/nombreEmpleado"
             android:layout_width="wrap_content"
@@ -112,7 +121,9 @@
 
 -->
 
-<TableLayout android:layout_width="wrap_content"
+
+
+    <TableLayout android:layout_width="wrap_content"
     android:layout_height="wrap_content">
     <TableRow android:layout_height="wrap_content">
         <Button
@@ -131,5 +142,12 @@
             android:onClick="limpiarEmpleado" />
     </TableRow>
 </TableLayout>
+<TextView android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:text="@string/autor"
+    android:id="@+id/textautor"
+    />
 
 </LinearLayout>
+</ScrollView>
