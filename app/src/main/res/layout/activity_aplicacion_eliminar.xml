@@ -36,6 +36,13 @@
     <TableRow>
         <Button
             android:onClick="eliminarAplicacion"
-            android:text="@string/eliminar" />
+            android:text="@string/eliminar"
+            android:textAppearance="@style/estiloBotonFB12001"/>
     </TableRow>
+    <LinearLayout>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/FB12001" />
+    </LinearLayout>
 </TableLayout>

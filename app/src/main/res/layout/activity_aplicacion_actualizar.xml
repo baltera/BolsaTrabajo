@@ -34,7 +34,8 @@
     </TableRow>
     <TableRow>
         <Button android:onClick="consultarAplicacion"
-            android:text="@string/modificarAplif"/>
+            android:text="@string/modificarAplif"
+            android:textAppearance="@style/estiloBotonFB12001"/>
     </TableRow>
     <TableRow>
         <TextView android:text="@string/fechaAplicacionf"/>
@@ -56,12 +57,20 @@
             android:onClick="actualizarAplicacion"
             android:text="@string/actualizar"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/estiloBotonFB12001"/>
         <Button
             android:onClick="limpiarTexto"
             android:text="@string/limpiar"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/estiloBotonFB12001"/>
 
+    </LinearLayout>
+    <LinearLayout>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/FB12001" />
     </LinearLayout>
 </TableLayout>

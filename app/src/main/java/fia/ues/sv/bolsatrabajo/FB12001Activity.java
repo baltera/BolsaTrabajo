@@ -16,7 +16,7 @@ public class FB12001Activity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ListView listView = getListView();
-        //ponerle color
+        listView.setBackgroundColor(Color.parseColor("#FF3BE2FF"));
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menu);
         setListAdapter(adapter);
     }
@@ -24,7 +24,8 @@ public class FB12001Activity extends ListActivity {
     protected void onListItemClick (ListView l,View v, int position, long id){
         super.onListItemClick(l,v,position,id);
         String nombreValue=activities[position];
-        //l.getChildAt(position).setBackgroundColor(Color.rgb(128,128,255));
+        l.getChildAt(position).setBackgroundColor(Color.parseColor("#ff76c4ff"));
+
         try{
             Class<?> clase=Class.forName("fia.ues.sv.bolsatrabajo."+nombreValue);
             Intent inte = new Intent(this,clase);

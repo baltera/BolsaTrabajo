@@ -41,19 +41,24 @@ public class AplicacionInsertarActivity extends Activity implements AdapterView.
 
         String estadoAplicacionf=editEstadoAplicacionf.getText().toString();
         String fechaAplicacionf=editFechaAplicacionf.getText().toString();
-        String registrosInser;
-        Aplicacion aplicacion= new Aplicacion();
-        //aplicacion.setIdAplicacion(2);
-        aplicacion.setIdEmpleado(idEmpleado);
-        aplicacion.setIdEmpresa(idEmpresa);
-        aplicacion.setIdOfertaLaboral(idOferta);
-        aplicacion.setFechaAplicacion(fechaAplicacionf);
-        aplicacion.setEstadoAplicacion(estadoAplicacionf);
-        //Toast.makeText(this,String.valueOf (aplicacion.getIdEmpleado()),Toast.LENGTH_SHORT).show();
-        helper.abrir();
-        registrosInser=helper.insertar(aplicacion);
-        helper.cerrar();
-        Toast.makeText(this,registrosInser,Toast.LENGTH_SHORT).show();
+        if(estadoAplicacionf==null|| fechaAplicacionf==null){
+            Toast.makeText(this,"Error!! campos vacios ",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            String registrosInser;
+            Aplicacion aplicacion = new Aplicacion();
+            //aplicacion.setIdAplicacion(2);
+            aplicacion.setIdEmpleado(idEmpleado);
+            aplicacion.setIdEmpresa(idEmpresa);
+            aplicacion.setIdOfertaLaboral(idOferta);
+            aplicacion.setFechaAplicacion(fechaAplicacionf);
+            aplicacion.setEstadoAplicacion(estadoAplicacionf);
+            //Toast.makeText(this,String.valueOf (aplicacion.getIdEmpleado()),Toast.LENGTH_SHORT).show();
+            helper.abrir();
+            registrosInser = helper.insertar(aplicacion);
+            helper.cerrar();
+            Toast.makeText(this, registrosInser, Toast.LENGTH_SHORT).show();
+        }
     }
     public void limpiarTexto(View v){
         editFechaAplicacionf.setText("");

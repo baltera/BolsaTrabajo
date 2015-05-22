@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+    android:layout_width="wrap_content"
     android:layout_height="fill_parent"
     android:paddingTop="30dip"
     android:stretchColumns="1"
@@ -15,10 +15,12 @@
     <TableRow>
         <Button
             android:onClick="consultarCargo"
-            android:text="@string/consultar" />
+            android:text="@string/consultar"
+            android:textAppearance="@style/estiloBotonFB12001"/>
         <Button
             android:onClick="limpiarTexto"
-            android:text="@string/limpiar" />
+            android:text="@string/limpiar"
+            android:textAppearance="@style/estiloBotonFB12001"/>
     </TableRow>
     <TableRow>
         <TextView android:text="@string/nombreCargof"
@@ -50,6 +52,12 @@
             android:longClickable="false"/>
 
     </TableRow>
+    <LinearLayout>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/FB12001" />
+    </LinearLayout>
 
 
 </TableLayout>

@@ -29,7 +29,7 @@
         <TextView android:text="@string/fechaAplicacionf"/>
         <EditText
             android:id="@+id/editFechaAplicacionf"
-            android:inputType="text"
+            android:inputType="date"
             android:maxLength="10" />
     </TableRow>
     <TableRow>
@@ -46,9 +46,17 @@
     <TableRow>
         <Button
             android:onClick="insertarAplicacion"
-            android:text="@string/insertar" />
+            android:text="@string/insertar"
+            android:textAppearance="@style/estiloBotonFB12001"/>
         <Button
             android:onClick="limpiarTexto"
-            android:text="@string/limpiar" />
+            android:text="@string/limpiar"
+            android:textAppearance="@style/estiloBotonFB12001"/>
     </TableRow>
+    <LinearLayout>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/FB12001" />
+    </LinearLayout>
 </TableLayout>

@@ -63,17 +63,25 @@ public class AplicacionActualizarActivity extends Activity implements AdapterVie
 
     }// fin consultar
     public void actualizarAplicacion(View v){
-        Aplicacion aplicacion=new Aplicacion();
-        aplicacion.setIdAplicacion(Integer.valueOf(editIdAplicacionf.getText().toString()));
-        aplicacion.setIdEmpleado(idEmpleado);
-        aplicacion.setIdOfertaLaboral(idOferta);
-        aplicacion.setIdEmpresa(idEmpresa);
-        aplicacion.setFechaAplicacion(editFechaAplicacionf.getText().toString());
-        aplicacion.setEstadoAplicacion(editEstadoAplicacionf.getText().toString());
-        helper.abrir();
-        String resultado= helper.actualizar(aplicacion);
-        helper.cerrar();
-        Toast.makeText(this,resultado,Toast.LENGTH_SHORT).show();
+        String estadoAplicacionf=editEstadoAplicacionf.getText().toString();
+        String fechaAplicacionf=editFechaAplicacionf.getText().toString();
+        if(estadoAplicacionf==" "|| fechaAplicacionf==" "){
+            Toast.makeText(this,"Error!! campos vacios ",Toast.LENGTH_SHORT).show();
+        }
+        else {
+
+            Aplicacion aplicacion = new Aplicacion();
+            aplicacion.setIdAplicacion(Integer.valueOf(editIdAplicacionf.getText().toString()));
+            aplicacion.setIdEmpleado(idEmpleado);
+            aplicacion.setIdOfertaLaboral(idOferta);
+            aplicacion.setIdEmpresa(idEmpresa);
+            aplicacion.setFechaAplicacion(fechaAplicacionf);
+            aplicacion.setEstadoAplicacion(estadoAplicacionf);
+            helper.abrir();
+            String resultado = helper.actualizar(aplicacion);
+            helper.cerrar();
+            Toast.makeText(this, resultado, Toast.LENGTH_SHORT).show();
+        }
 
     }
     public void limpiarTexto(View v){

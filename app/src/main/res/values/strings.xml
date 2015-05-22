@@ -37,6 +37,15 @@
     <string name="spinnerEmpleado">Id Empleado</string>
     <string name="spinnerOferta">Id oferta Laboral</string>
     <string name="spinnerEmpresa">Id Empresa</string>
+    <string name="FB12001">Mónica Guadalupe Flores Bonilla © </string>
+    <style name="EstilosTexto"></style>
+    <style name="estiloBotonFB12001" parent="@style/EstilosTexto">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:textStyle">italic</item>
+
+    </style>
+
     <!-- Fin de strings FB12001 -->
     <!-- Strings SB12002 -->
     <string name="idReferencia">N° de Referencia:</string>

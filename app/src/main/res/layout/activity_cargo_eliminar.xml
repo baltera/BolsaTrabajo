@@ -18,7 +18,13 @@
         <Button
             android:onClick="eliminarCargo"
             android:text="@string/eliminar"
-            android:elegantTextHeight="false" />
+            android:textAppearance="@style/estiloBotonFB12001" />
 
     </TableRow>
+    <LinearLayout>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/FB12001" />
+    </LinearLayout>
 </TableLayout>
