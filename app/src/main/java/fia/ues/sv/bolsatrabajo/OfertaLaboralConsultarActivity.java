@@ -6,19 +6,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class IEConsultarActivity extends ActionBarActivity {
+public class OfertaLaboralConsultarActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ieconsultar);
+        setContentView(R.layout.activity_oferta_laboral_consultar);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_ieconsultar, menu);
+        getMenuInflater().inflate(R.menu.menu_oferta_laboral_consultar, menu);
         return true;
     }
 
