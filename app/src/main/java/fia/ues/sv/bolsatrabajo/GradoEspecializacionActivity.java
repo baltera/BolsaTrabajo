@@ -16,8 +16,7 @@ public class GradoEspecializacionActivity extends ActionBarActivity {
         setContentView(R.layout.activity_grado_especializacion);
     }
 
-    public void insertarGradoEspecializacion(View view) {
-
+    public void insertarGradoEspec(View view) {
         try{
             Class <?> clase=Class.forName("fia.ues.sv.bolsatrabajo.GradoEspecializacionInsertarActivity");
             Intent intento=new Intent(this,clase);
@@ -27,8 +26,7 @@ public class GradoEspecializacionActivity extends ActionBarActivity {
         }
     }
 
-    public void eliminarGradoEspecializacion(View view) {
-
+    public void eliminarGradoEspec(View view) {
         try{
             Class <?> clase=Class.forName("fia.ues.sv.bolsatrabajo.GradoEspecializacionEliminarActivity");
             Intent intento=new Intent(this,clase);
@@ -38,7 +36,7 @@ public class GradoEspecializacionActivity extends ActionBarActivity {
         }
     }
 
-    public void modificarGradoEspecializacion(View view) {
+    public void modificarGradoEspec(View view) {
         try{
             Class <?> clase=Class.forName("fia.ues.sv.bolsatrabajo.GradoEspecializacionModificarActivity");
             Intent intento=new Intent(this,clase);
@@ -48,7 +46,7 @@ public class GradoEspecializacionActivity extends ActionBarActivity {
         }
     }
 
-    public void consultarGradoEspecializacion(View view) {
+    public void consultarGradoEspec(View view) {
         try{
             Class <?> clase=Class.forName("fia.ues.sv.bolsatrabajo.GradoEspecializacionConsultarActivity");
             Intent intento=new Intent(this,clase);

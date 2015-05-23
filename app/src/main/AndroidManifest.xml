@@ -41,10 +41,6 @@
             android:label="@string/title_activity_referencia_eliminar" >
         </activity>
         <activity
-            android:name=".ReferenciaInsertarActivity"
-            android:label="@string/title_activity_referencia_insertar" >
-        </activity>
-        <activity
             android:name=".ReferenciaConsultarActivity"
             android:label="@string/title_activity_referencia_consultar" >
         </activity>
@@ -108,56 +104,6 @@
             android:name=".CargoEliminarActivity"
             android:label="@string/title_activity_cargo_eliminar" >
         </activity>
-
-
-
-
-        <!--FR12001-->
-        <activity
-            android:name=".FR12001Activity"
-            android:label="@string/title_activity_fr12001" >
-        </activity>
-        <activity
-            android:name=".EmpleadoActivity"
-            android:label="@string/title_activity_empleado" >
-        </activity>
-        <activity
-            android:name=".ExperienciaLaboralActivity"
-            android:label="@string/title_activity_experiencia_laboral" >
-        </activity>
-        <activity
-            android:name=".EmpleadoInsertarActivity"
-            android:label="@string/title_activity_empleado_insertar" >
-        </activity>
-        <activity
-            android:name=".EmpleadoConsultarActivity"
-            android:label="@string/title_activity_empleado_consultar" >
-        </activity>
-        <activity
-            android:name=".EmpleadoActualizarActivity"
-            android:label="@string/title_activity_empleado_actualizar" >
-        </activity>
-        <activity
-            android:name=".EmpleadoEliminarActivity"
-            android:label="@string/title_activity_empleado_eliminar" >
-        </activity>
-        <activity
-            android:name=".ExpLaboralInsertarActivity"
-            android:label="@string/title_activity_exp_laboral_insertar" >
-        </activity>
-        <activity
-            android:name=".ExpLaboralConsultarActivity"
-            android:label="@string/title_activity_exp_laboral_consultar" >
-        </activity>
-        <activity
-            android:name=".ExpLaboralModificarActivity"
-            android:label="@string/title_activity_exp_laboral_modificar" >
-        </activity>
-        <activity
-            android:name=".ExpLaboralEliminarActivity"
-            android:label="@string/title_activity_exp_laboral_eliminar" >
-        </activity>
-        <!--FIN FR12001-->
     </application>
 
 </manifest>
