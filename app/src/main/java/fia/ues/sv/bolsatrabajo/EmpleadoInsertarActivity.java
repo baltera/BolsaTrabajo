@@ -39,7 +39,6 @@ public class EmpleadoInsertarActivity extends Activity {
         String nombre=editNombreEmpleado.getText().toString();
         String dui=editDuiEmpleado.getText().toString();
         String edad=editEdadEmpleado.getText().toString();
-
         String direccion=editDireccionEmpleado.getText().toString();
         String telefono=editTelefonoEmpleado.getText().toString();
         String regInsertado;
@@ -65,7 +64,7 @@ public class EmpleadoInsertarActivity extends Activity {
              empleado.setCantAplicaciones_empleado(0);
              empleado.setCantReferencias_empleado(0);
              //helper.abrir();
-             regInsertado = helper.insertar(empleado);
+             regInsertado = helper.insertarEmpleado(empleado);
              helper.cerrar();
              Toast.makeText(this, regInsertado, Toast.LENGTH_LONG).show();
          }//fin del else

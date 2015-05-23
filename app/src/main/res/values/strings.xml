@@ -110,5 +110,6 @@
     <string name="title_activity_ieconsultar">IEConsultarActivity</string>
     <string name="title_activity_ieeliminar">IEEliminarActivity</string>
     <string name="title_activity_ieactualizar">IEActualizarActivity</string>
+    <string name="title_activity_llenar_base">LlenarBaseActivity</string>
     <!--fin RG12001-->
 </resources>

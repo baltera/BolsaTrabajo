@@ -90,14 +90,14 @@ public class ExpLaboralInsertarActivity extends Activity implements AdapterView.
             case R.id.spinnerIdEmpresa:
 
                 resultadoEmpresa=adapterView.getItemAtPosition(i).toString();
-                Toast.makeText(this, "Seleccionado " + resultadoEmpresa, Toast.LENGTH_LONG).show();
+               // Toast.makeText(this, "Seleccionado " + resultadoEmpresa, Toast.LENGTH_LONG).show();
 
                 break;
 
             case R.id.spinnerIdCargo:
 
                 resultadoCargo=adapterView.getItemAtPosition(i).toString();
-                 Toast.makeText(this,"Seleccionado "+ resultadoCargo, Toast.LENGTH_LONG).show();
+                 //Toast.makeText(this,"Seleccionado "+ resultadoCargo, Toast.LENGTH_LONG).show();
 
                 break;
         }
@@ -116,11 +116,15 @@ public class ExpLaboralInsertarActivity extends Activity implements AdapterView.
         helper.abrir();
         Empleado empleado=helper.consultarEmpleado(idEmpleadoEL.getText().toString());
         if(empleado==null)
-        {Toast.makeText(this,"EL EMPLEADO "+idEmpleadoEL.getText().toString()+" NO EXISTE",Toast.LENGTH_LONG).show();}
+        {Toast.makeText(this,"EL EMPLEADO "+idEmpleadoEL.getText().toString()+" NO EXISTE",Toast.LENGTH_LONG).show();
+
+        }
         else{
-            Toast.makeText(this,"empleado existe",Toast.LENGTH_SHORT).show();
-          res=helper.insertarExpLab(idEmpleadoEL.getText().toString(),resultadoEmpresa,resultadoCargo,duracionExpLab.getText().toString());
-            Toast.makeText(this,res,Toast.LENGTH_LONG).show();
+            if(duracionExpLab.getText().toString()==null)
+            {Toast.makeText(this,"INGRESE TODOS LOS DATOS",Toast.LENGTH_LONG).show();}
+            else
+            { res=helper.insertarExpLab(idEmpleadoEL.getText().toString(),resultadoEmpresa,resultadoCargo,duracionExpLab.getText().toString());
+            Toast.makeText(this,res,Toast.LENGTH_LONG).show();}
         }
 
     }

@@ -25,6 +25,7 @@ public class ControlBD {
     private SQLiteDatabase db;
     private DatabaseHelper DBHelper;
 
+
     public ControlBD(Context ctx) {
         this.context = ctx;
         DBHelper = new DatabaseHelper(context);
@@ -43,9 +44,9 @@ public class ControlBD {
         //SCRIPT SQLite CREACION BD DIVIDIDO POR INSTRUCCIONES
         String sqlCreateApl="create table APLICACION(ID_APLICACION integer not null, ID_EMPLEADO integer not null, ID_OFERTALABORAL integer not null, ID_EMPRESA integer, FECHA_APLICACION  varchar(30), ESTADO_APLICACION varchar(20), primary key (ID_APLICACION,ID_EMPLEADO,ID_OFERTALABORAL,ID_EMPRESA));";
         String sqlCreateCar="create table CARGO(ID_CARGO integer not null primary key autoincrement, NOMBRE_CARGO varchar(60) not null, DESCRIPCION_CARGO varchar(140) not null);";
-        String sqlCreateDetEst="create table DETALLEESTUDIO(ID_DETALLEEST integer not null, ID_EMPLEADO integer, ID_ESPECIALIZACION integer, ID_INSTITUTOESTUDIO integer, ANYOGRADUACION_DETALLEEST integer, primary key (ID_DETALLEEST,ID_EMPLEADO));";
+        String sqlCreateDetEst="create table DETALLEESTUDIO(ID_DETALLEEST integer not null primary key autoincrement, ID_EMPLEADO integer, ID_ESPECIALIZACION integer, ID_INSTITUTOESTUDIO integer, ANYOGRADUACION_DETALLEEST integer);";
         String sqlCreateEmpl="create table EMPLEADO(ID_EMPLEADO integer not null primary key autoincrement, NOMBRE_EMPLEADO varchar(50) not null, DUI_EMPLEADO integer not null, SEXO_EMPLEADO varchar(1) not null, EDAD_EMPLEADO integer not null, DIRECCION_EMPLEADO varchar(100) not null, TELEFONO_EMPLEADO integer not null, CANTAPLICACIONES_EMPLEADO integer, CANTREFERENCIAS_EMPLEADO integer);";
-        String sqlCreateEmp="create table EMPRESA(ID_EMPRESA integer not null primary key autoincrement, NOMBRE_EMPRESA varchar(50) not null, NIT_EMPRESA varchar(25) not null, DIR_EMPRESA varchar(50) not null, TEL_EMPRESA varchar(10), CANTOFERTAS_EMPRESA  integer NOT NULL);";
+        String sqlCreateEmp="create table EMPRESA(ID_EMPRESA integer not null primary key autoincrement, NOMBRE_EMPRESA varchar(50) not null, NIT_EMPRESA varchar(25) not null, DIR_EMPRESA varchar(50) not null, TEL_EMPRESA varchar(10), CANTOFERTAS_EMPRESA  integer not null);";
         String sqlCreateExpLab="create table EXPERIENCIALABORAL(ID_EXPERIENCIALABORAL integer not null primary key autoincrement , ID_EMPLEADO  integer not null, ID_EMPRESA integer not null, ID_CARGO integer not null, DURACION_EXPERIENCIALABORAL integer not null);";
         String sqlCreateGraEsp="create table GRADOESPECIALIZACION(ID_ESPECIALIZACION integer not null, ID_INSTITUTOESTUDIO  integer, NOMBRE_ESPECIALIZACION varchar(50) not null, DURACION_ESPECIALIZACION integer,primary key (ID_ESPECIALIZACION,ID_INSTITUTOESTUDIO));";
         String sqlCreateInsEst="create table INSTITUTOESTUDIO(ID_INSTITUTOESTUDIO integer not null, NOMBRE_INSTITUTOESTUDIO varchar(100) not null, MUNICIPIO_INSTITUTOESTUDIO varchar(30) not null, DEPARTAMENTO_INSTITUTOESTUDIO varchar(30) not null, primary key (ID_INSTITUTOESTUDIO));";
@@ -85,8 +86,80 @@ public class ControlBD {
     //Aqui cada uno se divierte :)
 
     /*****************************************************************************************************************************************/
+    public String llenarBase(){
+        String estadoBase="";
+    //Vectores para cada uno de los campos de cada tabla
+         //vectores empleado
+    final String[] nombreEmpleado = {"Jorge Pérez","Maritza Cañas","Sebastian Funes","Carlos Dominguez"};
+    final int [] duiEmpleado={050034561,060023567,030034561,0500325677};
+    final String[] sexoEmpleado={"M","F","M","M"};
+    final int[] edadEmpleado={24,50,32,40};
+    final String[] direccionEmpleado={"25 Av.Norte #17H, San Salvador","Res.Los Altos,#5,Mejicanos","Calle Las Flores #5A,Cuscatlan","49 Av. Norte, Res.Los Lirios #6B,San Salvador"};
+    final int[] telefonoEmpleado={22563456,22784567,75946754,23564788};
+    final int[] cantApEmpleado={1,3,5,2};
+    final int[] cantRefEmpleado={3,2,2,3};
+
+     //vectores Experiencia Laboral
+    final String[] idTodos={"1","2","3","4"};
+    final String[] duracionExpLab={"6","8","12","16"};
+        //vectorees Empresa
+    final String[] nombreEmpresa={"Pizza Hut","Office Depot","C.E San Antonio","Telefonica"};
+    final String[] nitEmpresa={"0614-220605-113-0","0675-330734","0423-220812","0614-345632-551-0"};
+    final String[] dirEmpresa={"Blv.Los Proceres, Local 5A,San Salvador","49 Av. Norte,#45, San Salvador","Barrio San Juan,Boque 1A,Sonsonate","Centro Comercial Metrocentro, 2° Nivel,San Salvador"};
+    final String[] telEmpresa={"2276-4533","79567843","2233-6755","2256-8977"};
+    final int[] canOfertasEmpresa={6,4,1,5};
+        //vectores detalleestudio
+    final int[] idEmpleadoDE={1,2,3,4};
+    final int[] idEspecializacionDE={1,2,3,4};
+    final int[] idInstEstudioDE={1,2,3,4};
+    final int[] anyoGraducionDE={2008,2014,2010,2012};
+        //Vectores tabla Moni
+        //Vectoress tabla Edgardo
+        //Vectores tabla Eduardo
+       /*------EMPIEZA LA INSERCION ---*/
+        for (int i = 0; i < 4; i++) {
+            //tabla empresa
+            ContentValues values = new ContentValues();
+            values.put("NOMBRE_EMPRESA", nombreEmpresa[i]);
+            values.put("NIT_EMPRESA",nitEmpresa[i]);
+            values.put("DIR_EMPRESA",dirEmpresa[i]);
+            values.put("TEL_EMPRESA", telEmpresa[i]);
+            values.put("CANTOFERTAS_EMPRESA",canOfertasEmpresa[i]);
+            db.insert("EMPRESA", null, values);
+
+            //tabla Empleado, se reutilizara el metodo insertarEmpleado
+            Empleado empleado = new Empleado();
+            empleado.setNombre_empleado(nombreEmpleado[i]);
+            empleado.setDui_empleado(duiEmpleado[i]);
+            empleado.setSexo_empleado(sexoEmpleado[i]);
+            empleado.setEdad_empleado(edadEmpleado[i]);
+            empleado.setDireccion_empleado(direccionEmpleado[i]);
+            empleado.setTelefono_empleado(telefonoEmpleado[i]);
+            empleado.setCantAplicaciones_empleado(cantApEmpleado[i]);
+            empleado.setCantReferencias_empleado(cantRefEmpleado[i]);
+            insertarEmpleado(empleado);
+
+            //tabla  ExperienciaLaboral, se reutilizara el metodo insertarExpLab
+             insertarExpLab(idTodos[i],idTodos[i],idTodos[i],duracionExpLab[i]);
+            //tabla DetalleEstudio
+            ContentValues values2 = new ContentValues();
+            values2.put("ID_EMPLEADO",idEmpleadoDE[i]);
+            values2.put("ID_ESPECIALIZACION",idEspecializacionDE[i]);
+            values2.put("ID_INSTITUTOESTUDIO",idInstEstudioDE[i]);
+            values2.put("ANYOGRADUACION_DETALLEEST",anyoGraducionDE[i]);
+            db.insert("DETALLEESTUDIO", null, values2);
+
+
+        }//fin for
+
+        return estadoBase="El llenado de la Base de Datos se hizo Satisfactoriamente";
+    }
+
+
+
+
 /*METODOS CRUD FR120001*/
-    public String insertar(Empleado empleado){
+    public String insertarEmpleado(Empleado empleado){
         String regInsertados="¡ATENCION! Su numero de Empleado es = ";
         long contador;
 
@@ -127,13 +200,6 @@ public class ControlBD {
          else{return null;}
      }
 
-    public int buscarId(){
-
-        Cursor cursor =db.rawQuery("SELECT ID_EMPLEADO FROM EMPLEADO",null);
-
-         return cursor.getCount();
-
-        }
     public String actualizarEmpleado(Empleado empleado) {
 
 
@@ -208,7 +274,6 @@ public class ControlBD {
             values.put("NOMBRE_EMPRESA", "nombre " + i);
             values.put("NIT_EMPRESA", "NIT " + i);
             values.put("DIR_EMPRESA", "DIRECCION " + i);
-            values.put("NIT_EMPRESA", "NIT " + i);
             values.put("TEL_EMPRESA", "TEL " + i);
             values.put("CANTOFERTAS_EMPRESA", i + 1);
             db.insert("EMPRESA", null, values);

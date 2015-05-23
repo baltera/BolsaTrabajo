@@ -63,7 +63,7 @@ public class ExpLaboralModificarActivity extends Activity {
         ExperienciaLaboral el= helper.verificarIntegridadConsultar(idExpLabModificar.getText().toString(),idEmpleadoELModificar.getText().toString());
         helper.cerrar();
         if (el == null) {
-            Toast.makeText(this, "Empleado " + idEmpleadoELModificar.getText().toString() + " Inexistente", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Experiencia Laboral no concuerda con Empleado", Toast.LENGTH_LONG).show();
         } else {
             idEmpresaELModificar.setText(String.valueOf(el.getIdEmpresa()));
             idCargoELModificar.setText(String.valueOf(el.getIdCargo()));
@@ -76,18 +76,24 @@ public class ExpLaboralModificarActivity extends Activity {
     }
     public void actualizarEL(View v){
         ExperienciaLaboral el= new ExperienciaLaboral();
-        el.setIdExpLaboral(Integer.parseInt(idExpLabModificar.getText().toString()));
-        el.setIdEmpleado(Integer.parseInt(idEmpleadoELModificar.getText().toString()));
-        el.setIdEmpresa(Integer.parseInt(idEmpresaELModificar.getText().toString()));
-        el.setIdCargo(Integer.parseInt(idCargoELModificar.getText().toString()));
-        el.setDuracionExpLaboral(Integer.parseInt(duracionELModificar.getText().toString()));
+        String idEL=idExpLabModificar.getText().toString();
+        String idEmpEL=idEmpleadoELModificar.getText().toString();
+        String idEmpresaEL=idEmpresaELModificar.getText().toString();
+        String idCarEL=idCargoELModificar.getText().toString();
+        String duracEL=duracionELModificar.getText().toString();
+        el.setIdExpLaboral(Integer.valueOf(idEL));
+        el.setIdEmpleado(Integer.valueOf(idEmpEL));
+        el.setIdEmpresa(Integer.valueOf(idEmpresaEL));
+        el.setIdCargo(Integer.valueOf(idCarEL));
+        el.setDuracionExpLaboral(Integer.valueOf(duracEL));
         helper.abrir();
         String res=helper.actualizarEL(el);
+        helper.cerrar();
         Toast.makeText(this,res,Toast.LENGTH_LONG).show();
 
-
-
         }
+
+
     public void limpiarModificarEL(View v){
         idExpLabModificar.setText("");
         idExpLabModificar.setEnabled(true);

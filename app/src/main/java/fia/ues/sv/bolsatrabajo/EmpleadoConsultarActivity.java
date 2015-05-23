@@ -53,7 +53,7 @@ public class EmpleadoConsultarActivity extends Activity {
             editEdadEmpleado.setText(String.valueOf(empleado.getEdad_empleado()));
             editDireccionEmpleado.setText(empleado.getDireccion_empleado());
             editTelefonoEmpleado.setText(String.valueOf(empleado.getTelefono_empleado()));
-            editCantRefEmpleado.setText(String.valueOf(empleado.getCantAplicaciones_empleado()));
+            editCantApEmpleado.setText(String.valueOf(empleado.getCantAplicaciones_empleado()));
             editCantRefEmpleado.setText(String.valueOf(empleado.getCantReferencias_empleado()));
         }
     }

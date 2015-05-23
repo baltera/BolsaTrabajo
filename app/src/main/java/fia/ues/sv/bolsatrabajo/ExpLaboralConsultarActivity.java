@@ -67,7 +67,7 @@ public class ExpLaboralConsultarActivity extends Activity {
         String id2=idEmpleadoELConsultar.getText().toString();
 
         ExperienciaLaboral el = new ExperienciaLaboral();
-        if(id2== null || id1==null)
+        if(id2== "" || id1=="")
         {Toast.makeText(this,"INGRESE EL ID EXPERIENCIA LABORAL Y ID DE EMPLEADO",Toast.LENGTH_LONG).show();}
        else {
             helper.abrir();
