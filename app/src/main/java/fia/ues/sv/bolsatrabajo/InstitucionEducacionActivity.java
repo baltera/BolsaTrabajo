@@ -1,39 +1,37 @@
 package fia.ues.sv.bolsatrabajo;
 
+import android.app.ListActivity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 
-public class InstitucionEducacionActivity extends ActionBarActivity {
+public class InstitucionEducacionActivity extends ListActivity {
+    String[] opc = {"Crear institución","Consultar institución","Actualizar institución","Eliminar institución"};
+    String[] act = {"IEInsertarActivity","IEConsultarActivity","IEActualizarActivity","IEEliminarActivity"};
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_institucion_educacion);
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_institucion_educacion, menu);
-        return true;
+        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, opc));
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    protected void onListItemClick(ListView l,View v,int position,long id){
+        super.onListItemClick(l, v, position, id);
+        String nombreValue=act[position];
+        try{
+            Class<?> clase=Class.forName("fia.ues.sv.bolsatrabajo."+nombreValue);
+            Intent inte = new Intent(this,clase);
+            this.startActivity(inte);
+        }catch(ClassNotFoundException e){
+            e.printStackTrace();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
         }
-
-        return super.onOptionsItemSelected(item);
     }
 }

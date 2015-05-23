@@ -41,6 +41,10 @@
             android:label="@string/title_activity_referencia_eliminar" >
         </activity>
         <activity
+            android:name=".ReferenciaInsertarActivity"
+            android:label="@string/title_activity_referencia_insertar" >
+        </activity>
+        <activity
             android:name=".ReferenciaConsultarActivity"
             android:label="@string/title_activity_referencia_consultar" >
         </activity>
@@ -104,6 +108,95 @@
             android:name=".CargoEliminarActivity"
             android:label="@string/title_activity_cargo_eliminar" >
         </activity>
+
+        <!-- FR12001 -->
+        <activity
+            android:name=".FR12001Activity"
+            android:label="@string/title_activity_fr12001" >
+        </activity>
+        <activity
+            android:name=".EmpleadoActivity"
+            android:label="@string/title_activity_empleado" >
+        </activity>
+        <activity
+            android:name=".ExperienciaLaboralActivity"
+            android:label="@string/title_activity_experiencia_laboral" >
+        </activity>
+        <activity
+            android:name=".EmpleadoInsertarActivity"
+            android:label="@string/title_activity_empleado_insertar" >
+        </activity>
+        <activity
+            android:name=".EmpleadoConsultarActivity"
+            android:label="@string/title_activity_empleado_consultar" >
+        </activity>
+        <activity
+            android:name=".EmpleadoActualizarActivity"
+            android:label="@string/title_activity_empleado_actualizar" >
+        </activity>
+        <activity
+            android:name=".EmpleadoEliminarActivity"
+            android:label="@string/title_activity_empleado_eliminar" >
+        </activity>
+        <activity
+            android:name=".ExpLaboralInsertarActivity"
+            android:label="@string/title_activity_exp_laboral_insertar" >
+        </activity>
+        <activity
+            android:name=".ExpLaboralConsultarActivity"
+            android:label="@string/title_activity_exp_laboral_consultar" >
+        </activity>
+        <activity
+            android:name=".ExpLaboralModificarActivity"
+            android:label="@string/title_activity_exp_laboral_modificar" >
+        </activity>
+        <activity
+            android:name=".ExpLaboralEliminarActivity"
+            android:label="@string/title_activity_exp_laboral_eliminar" >
+        </activity>
+        <!-- FIN FR12001 -->
+        <!-- RG12001 -->
+        <activity
+            android:name=".OLEliminarActivity"
+            android:label="@string/title_activity_oleliminar" >
+        </activity>
+        <activity
+            android:name=".OLActualizarActivity"
+            android:label="@string/title_activity_olactualizar" >
+        </activity>
+        <activity
+            android:name=".OLConsultarActivity"
+            android:label="@string/title_activity_olconsultar" >
+        </activity>
+        <activity
+            android:name=".OLInsertarActivity"
+            android:label="@string/title_activity_olinsertar" >
+        </activity>
+        <activity
+            android:name=".IEInsertarActivity"
+            android:label="@string/title_activity_ieinsertar" >
+        </activity>
+        <activity
+            android:name=".IEConsultarActivity"
+            android:label="@string/title_activity_ieconsultar" >
+        </activity>
+        <activity
+            android:name=".IEEliminarActivity"
+            android:label="@string/title_activity_ieeliminar" >
+        </activity>
+        <activity
+            android:name=".IEActualizarActivity"
+            android:label="@string/title_activity_ieactualizar" >
+        </activity>
+        <activity
+            android:name=".InstitucionEducacionActivity"
+            android:label="@string/title_activity_institucion_educacion" >
+        </activity>
+        <activity
+            android:name=".OfertaLaboralActivity"
+            android:label="@string/title_activity_oferta_laboral" >
+        </activity>
+        <!-- FIN RG12001 -->
     </application>
 
 </manifest>
