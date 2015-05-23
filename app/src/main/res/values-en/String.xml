@@ -84,7 +84,7 @@
     <string name="title_activity_exp_laboral_modificar">ExpLaboralModificarActivity</string>
     <string name="title_activity_exp_laboral_eliminar">ExpLaboralEliminarActivity</string>
     <string name="consultarIdEmpleado">Insert Employee Number: </string>
-    <string name="modificarEmpleado">Update this employee</string>
+    <string name="modificarEmpleado">Update</string>
     <string name="eliminarEmpleado">Delete Employee</string>
     <string name="actualizarDatos">Update</string>
     <string name="title_activity_fr12001">FR12001Activity</string>
