@@ -86,7 +86,7 @@ public class ControlBD {
 
     public String insertar(Referencia referencia){
 
-        String regInsertados="Referencia Insertada N°= " ;
+        String regInsertados="Referencia Insertada N= " ;
         long cont=0;
 
         ContentValues refe=new ContentValues();
@@ -125,7 +125,7 @@ public class ControlBD {
             refe.put("TELEFONO_REFERENCIA",referencia.getTelefono_referencia());
             refe.put("ID_EMPRESA", referencia.getId_empresa());
             db.update("REFERENCIA",refe,"ID_REFERENCIA= ? AND ID_EMPLEADO= ?",id);
-            return "Se Actualizó la Referencia";
+            return "Se Actualizï¿½ la Referencia";
 
         }
         else{
@@ -154,7 +154,7 @@ public class ControlBD {
 
 
     public String insertar(GradoEspecializacion especializacion){
-        String regInsertados="Especializacion Insertada N°= " ;
+        String regInsertados="Especializacion Insertada Nï¿½= " ;
         long cont=0;
 
         ContentValues cv=new ContentValues();
@@ -194,7 +194,7 @@ public class ControlBD {
             refe.put("NOMBRE_ESPECIALIZACION", especializacion.getNombre_especializacion());
             refe.put("DURACION_ESPECIALIZACION", especializacion.getDuracion_especializacion());
             db.update("GRADOESPECIALIZACION",refe,"ID_ESPECIALIZACION= ? ",id);
-            return "Se Actualizó la Especializacion ";
+            return "Se Actualizï¿½ la Especializacion ";
 
         }
         else{

@@ -27,7 +27,7 @@ public class ReferenciaConsultarActivity extends ActionBarActivity {
 
     public void consultarReferenciaAct(View view){
         helper.abrir();
-        Referencia referencia=helper.consultarReferencia(String.valueOf(editReferencia.getText().toString()),editIdEmpleado.getText().toString());//aquí puede haber un error porque envio un string en vez de un Int
+        Referencia referencia=helper.consultarReferencia(String.valueOf(editReferencia.getText().toString()),editIdEmpleado.getText().toString());//aqui puede haber un error porque envio un string en vez de un Int
 
         helper.cerrar();
         if(referencia==null){
