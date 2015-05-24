@@ -9,7 +9,7 @@ import android.widget.ListView;
 
 public class OfertaLaboralActivity extends ListActivity {
     String[] opc = {"Crear oferta","Consultar oferta","Actualizar oferta","Eliminar oferta"};
-    String[] act = {"OLInsertarActivity","OLConsultarActivity","OLActualizarActivity","OLEliminarActivity"};
+    String[] act = {"OfertaLaboralCrearActivity","OfertaLaboralConsultarActivity","OfertaLaboralActualizarActivity","OfertaLaboralEliminarActivity"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

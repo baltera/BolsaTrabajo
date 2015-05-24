@@ -109,7 +109,10 @@
             android:label="@string/title_activity_cargo_eliminar" >
         </activity>
 
-        <!-- FR12001 -->
+
+
+
+        <!--FR12001-->
         <activity
             android:name=".FR12001Activity"
             android:label="@string/title_activity_fr12001" >
@@ -154,49 +157,7 @@
             android:name=".ExpLaboralEliminarActivity"
             android:label="@string/title_activity_exp_laboral_eliminar" >
         </activity>
-        <!-- FIN FR12001 -->
-        <!-- RG12001 -->
-        <activity
-            android:name=".OLEliminarActivity"
-            android:label="@string/title_activity_oleliminar" >
-        </activity>
-        <activity
-            android:name=".OLActualizarActivity"
-            android:label="@string/title_activity_olactualizar" >
-        </activity>
-        <activity
-            android:name=".OLConsultarActivity"
-            android:label="@string/title_activity_olconsultar" >
-        </activity>
-        <activity
-            android:name=".OLInsertarActivity"
-            android:label="@string/title_activity_olinsertar" >
-        </activity>
-        <activity
-            android:name=".IEInsertarActivity"
-            android:label="@string/title_activity_ieinsertar" >
-        </activity>
-        <activity
-            android:name=".IEConsultarActivity"
-            android:label="@string/title_activity_ieconsultar" >
-        </activity>
-        <activity
-            android:name=".IEEliminarActivity"
-            android:label="@string/title_activity_ieeliminar" >
-        </activity>
-        <activity
-            android:name=".IEActualizarActivity"
-            android:label="@string/title_activity_ieactualizar" >
-        </activity>
-        <activity
-            android:name=".InstitucionEducacionActivity"
-            android:label="@string/title_activity_institucion_educacion" >
-        </activity>
-        <activity
-            android:name=".OfertaLaboralActivity"
-            android:label="@string/title_activity_oferta_laboral" >
-        </activity>
-        <!-- FIN RG12001 -->
+        <!--FIN FR12001-->
     </application>
 
 </manifest>

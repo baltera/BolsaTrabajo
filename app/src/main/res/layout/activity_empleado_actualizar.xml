@@ -1,9 +1,3 @@
-<ScrollView
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,86 +8,80 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="fia.ues.sv.bolsatrabajo.EmpleadoActualizarActivity"
     android:orientation="vertical">
-    <TextView android:text="ACTUALIZAR EMPLEADO"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textStyle="bold"
-        android:id="@+id/textView11" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/consultarIdEmpleado"
 
-        />
-<LinearLayout
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content">
+
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:text="@string/consultarIdEmpleado"
+            />
 
     <EditText
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/editIdEmpleado"
-        android:inputType="number"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/editConsultarIdEmp"
+        android:inputType="number" />
+
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/modificarEmpleado"
-        android:id="@+id/buttonModificarEmpleado"
-        android:onClick="verificarEmpleado"
-        />
-    </LinearLayout>
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="@string/modificarEmpleado"
+                   android:id="@+id/buttonModificarEmpleado"
+         />
+
 
     <TextView android:text="@string/nombreEmpleado"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
+            android:layout_width="match_parent" />
+
+
 
         <EditText  android:id="@+id/editNombreEmpleado"
-            android:inputType="textCapWords"
-            android:maxLength="50"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            android:inputType="text"
 
-            />
-<LinearLayout android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent" />
+
         <TextView android:text="@string/duiEmpleado"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"/>
         <EditText
-            android:layout_height="wrap_content"
-            android:layout_width="100dp"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
             android:id="@+id/editDuiEmpleado"
             android:inputType="number"
             android:maxLength="9"/>
-    <TextView android:text="@string/sexoEmpleado"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"/>
 
-    <EditText
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/editSexoEmpleado"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"/>
-
+        <TextView android:text="@string/sexoEmpleado"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"/>
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <RadioButton android:id="@+id/radio_femenino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sexoF"/>
+            <!--android:onClick="onRadioButtonClicked"-->
+            <RadioButton android:id="@+id/radio_masculino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sexoM"/>
+            <!--android:onClick="onRadioButtonClicked"-->
+        </RadioGroup>
 
     <TextView
-        android:text="@string/edadEmpleado"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"/>
-    <EditText android:id="@+id/editEdadEmpleado"
-        android:layout_height="wrap_content"
-        android:layout_width="50dp"
-        android:inputType="number"
-        />
-
-</LinearLayout>
-
-
+            android:text="@string/edadEmpleado"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+        <EditText android:id="@+id/editEdadEmpleado"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
+            android:inputType="number"
+            />
 
 
         <TextView
@@ -102,12 +90,9 @@
             android:text="@string/direccionEmpleado"/>
 
         <EditText android:id="@+id/editDireccionEmpleado"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_width="fill_parent"
-            android:inputType="textMultiLine"
-            android:lines="3"
-            android:maxLength="100"
-            android:gravity="top"
+            android:inputType="text"
              />
 
         <TextView android:layout_height="wrap_content"
@@ -115,35 +100,14 @@
             android:text="@string/telefonoEmpleado"/>
 
         <EditText android:id="@+id/editTelefonoEmpleado"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_width="fill_parent"
             android:inputType="phone"
             android:maxLength="8"
             />
-    <LinearLayout android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
     <Button
-        android:id="@+id/botonActualizar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/actualizarDatos"
-        android:onClick="actualizarEmpleado"
-        android:enabled="false" />
-    <Button
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/limpiar"
-        android:id="@+id/limpiarActualizar"
-        android:onClick="limpiarActualizar"
-         />
-
-    </LinearLayout>
-    <TextView android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/autor"
-        android:id="@+id/textautor"/>
+        android:text="@string/actualizarDatos"/>
 
 </LinearLayout>
-</ScrollView>
