@@ -30,7 +30,8 @@
         <EditText
             android:id="@+id/editFechaAplicacionf"
             android:inputType="date"
-            android:maxLength="10" />
+            android:maxLength="10"
+            android:hint="DD/MM/AA"/>
     </TableRow>
     <TableRow>
         <TextView android:text="@string/estadoAplicacionf" />

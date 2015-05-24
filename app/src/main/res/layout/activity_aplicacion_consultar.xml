@@ -10,7 +10,7 @@
         <TextView android:text="@string/idAplicacionf"/>
         <EditText
             android:id="@+id/editIdAplicacionf"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="5" />
     </TableRow>
     <TableRow>

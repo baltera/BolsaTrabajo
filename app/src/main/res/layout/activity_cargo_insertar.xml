@@ -10,7 +10,8 @@
         <EditText
             android:id="@+id/editNombreCargof"
             android:inputType="text"
-            android:maxLength="60" />
+            android:maxLength="60"
+            android:hint="Ej.Gerente General"/>
     </TableRow>
     <TableRow>
         <TextView android:text="@string/descripcionCargof" />

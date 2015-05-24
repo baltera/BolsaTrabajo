@@ -9,7 +9,7 @@
         <TextView android:text="@string/idCargof"/>
         <EditText
             android:id="@+id/editIdCargof"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="5" />
     </TableRow>
     <TableRow>
@@ -29,7 +29,7 @@
         <EditText
             android:id="@+id/editNombreCargof"
             android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:inputType="text"
             android:enabled="false"
             android:focusable="false"

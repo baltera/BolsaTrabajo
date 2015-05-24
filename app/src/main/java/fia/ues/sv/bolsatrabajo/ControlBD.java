@@ -20,13 +20,18 @@ public class ControlBD {
    private static final String[] camposEmpleado= new String[]{"NOMBRE_EMPLEADO","DUI_EMPLEADO","SEXO_EMPLEADO","EDAD_EMPLEADO","DIRECCION_EMPLEADO","TELEFONO_EMPLEADO","CANTAPLICACIONES_EMPLEADO","CANTREFERENCIAS_EMPLEADO"};
    private static final String[] camposConsultaEL= new String[]{"ID_EMPRESA","ID_CARGO","DURACION_EXPERIENCIALABORAL"};
     /*FIN FR12001*/
+    /*Campos FB12001*/
+    private static final String[] camposCargo = new String[]{"ID_CARGO","NOMBRE_CARGO","DESCRIPCION_CARGO"};
+    private static final String[] camposAplicacion = new String[]{"ID_APLICACION","ID_EMPLEADO","ID_OFERTALABORAL","ID_EMPRESA","FECHA_APLICACION","ESTADO_APLICACION"};
+    private static final String[] camposEmpresaCar= new String[]{"ID_EMPRESA","NOMBRE_EMPRESA","NIT_EMPRESA","DIR_EMPRESA","TEL_EMPRESA","CANTOFERTAS_EMPRESA"};
+
+  //fin fb12001
 
     private final Context context;
     private SQLiteDatabase db;
     private DatabaseHelper DBHelper;
-    //vector con los campos de cargo
-    private static final String[] camposCargo = new String[]{"ID_CARGO","NOMBRE_CARGO","DESCRIPCION_CARGO"};
-    private static final String[] camposAplicacion = new String[]{"ID_APLICACION","ID_EMPLEADO","ID_OFERTALABORAL","ID_EMPRESA","FECHA_APLICACION","ESTADO_APLICACION"};
+
+
 
     public ControlBD(Context ctx) {
         this.context = ctx;
@@ -128,6 +133,13 @@ public class ControlBD {
     final int[] idInstEstudioDE={1,2,3,4};
     final int[] anyoGraducionDE={2008,2014,2010,2012};
         //Vectores tabla Moni
+        //para la tabla cargo
+        final String[] nombreCargo={"Gerente de Creditos","Jefe de Planta","Jefe de tecnología","Jefe de Reacciones"};
+        final String[] descripcionCargo={"gerente para la gestion de creditos","Ingeniero industrial para control de planta","Ingeniero de Sistemas para el area de TI","Ingeniero Quimico encargado de planta de reactivos"};
+       // para la tabla aplicacion
+        final int[] idsAplicacionTodos={1,2,3,4};
+        final String[] fechaAplicacion={"23/05/15","13/05/15","20/05/15","24/05/15"};
+        final String[] estadoAplicacion={"Aceptada","Aceptada","En Proceso","En Proceso"};
         //Vectoress tabla Edgardo
         //Vectores tabla Eduardo
        /*------EMPIEZA LA INSERCION ---*/
@@ -162,6 +174,21 @@ public class ControlBD {
             values2.put("ID_INSTITUTOESTUDIO",idInstEstudioDE[i]);
             values2.put("ANYOGRADUACION_DETALLEEST",anyoGraducionDE[i]);
             db.insert("DETALLEESTUDIO", null, values2);
+
+            //Tabla Cargo, se reutiliza el metodo insertar(cargo
+            Cargo cargo= new Cargo();
+            cargo.setNombreCargo(nombreCargo[i]);
+            cargo.setDescripcionCargo(descripcionCargo[i]);
+            insertar(cargo);
+
+            //tabla Aplicacion se reutiliza el metodo inserta(aplicacion)
+            Aplicacion aplicacion= new Aplicacion();
+            aplicacion.setIdEmpleado(idsAplicacionTodos[i]);
+            aplicacion.setIdEmpresa(idsAplicacionTodos[i]);
+            aplicacion.setIdOfertaLaboral(idsAplicacionTodos[i]);
+            aplicacion.setFechaAplicacion(fechaAplicacion[i]);
+            aplicacion.setEstadoAplicacion(estadoAplicacion[i]);
+            insertar(aplicacion);
 
 
         }//fin for
@@ -234,8 +261,6 @@ public class ControlBD {
                 return "Empleado Actualizado Correctamente";
             }
         }
-
-
 
     public String eliminarEmpleado(Empleado empleado)
     {
@@ -368,7 +393,7 @@ public class ControlBD {
     }
     /*FIN FR12001*/
 
-    //                 CRUD DE CARGO
+    //  CRUD  FB12001            CRUD DE CARGO  ***************************************************************************************
     public String insertar(Cargo cargo){
         String registrosInser="Registro insertado N°= ";
         long contador;
@@ -441,6 +466,7 @@ public class ControlBD {
         return regAfectados;
 
     }
+    //CRUD Aplicacion
     public  String insertar(Aplicacion aplicacion){
         //esta insercion debe cumplir que existan los id de empleado, empresa y ofertalaboral
         String registrosInser="Registro insertado N°= ";
@@ -506,8 +532,8 @@ public class ControlBD {
 
     public List<String> recuperarEmpleado(){
         List<String> ids=new ArrayList<String>();
-        //Cursor cursor=db.rawQuery("Select ID_CARGO from CARGO",null);//ID_EMPLEADO  EMPLEADO
-        Cursor cursor =db.query("cargo",camposCargo,null,null,null,null,null);//para probar esta con la tabla cargo , cambiar a la tabla Empleado despues
+        Cursor cursor=db.rawQuery("Select ID_EMPLEADO from EMPLEADO",null);//ID_EMPLEADO  EMPLEADO
+        //Cursor cursor =db.query("EMPLEADO",camposEmpleado,null,null,null,null,null);//para probar esta con la tabla cargo , cambiar a la tabla Empleado despues
         if(cursor.moveToFirst()){
             do{
                 ids.add(cursor.getString(0));
@@ -522,7 +548,8 @@ public class ControlBD {
     }
     public List<String> recuperarEmpresa(){
         List<String> idem=new ArrayList<String>();
-        Cursor cursor =db.query("cargo",camposCargo,null,null,null,null,null);//para probar esta con la tabla cargo , cambiar a la tabla Empresa despues
+        Cursor cursor=db.rawQuery("Select ID_EMPRESA from EMPRESA",null);
+        //Cursor cursor =db.query("EMPRESA",camposEmpresaCar,null,null,null,null,null);//para probar esta con la tabla cargo , cambiar a la tabla Empresa despues
         if(cursor.moveToFirst()){
             do{
                 idem.add(cursor.getString(0));
@@ -552,6 +579,7 @@ public class ControlBD {
 
         return idem;
     }
+    // FIN CRUD FB12001****************************************************************
 
 
 

@@ -38,8 +38,8 @@
     <string name="spinnerOferta">Id oferta Laboral</string>
     <string name="spinnerEmpresa">Id Empresa</string>
     <string name="FB12001">Mónica Guadalupe Flores Bonilla © </string>
-    <style name="EstilosTexto"></style>
-    <style name="estiloBotonFB12001" parent="@style/EstilosTexto">
+    <style name="EstilosTextoFB"></style>
+    <style name="estiloBotonFB12001" parent="@style/EstilosTextoFB">
         <item name="android:textSize">15sp</item>
         <item name="android:textColor">#000</item>
         <item name="android:textStyle">italic</item>
