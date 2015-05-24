@@ -12,7 +12,7 @@ import android.widget.ListView;
 
 public class ExperienciaLaboralActivity extends ListActivity {
 
-    String[] menu={"Agregar Exp.Laboral","Consular Exp.Laboral","Modificar Exp. Laboral","Eliminar Exp.Laboral"};
+    String[] menu={"Agregar Exp.Laboral","Consultar Exp.Laboral","Modificar Exp. Laboral","Eliminar Exp.Laboral"};
     String[] activities={"ExpLaboralInsertarActivity","ExpLaboralConsultarActivity","ExpLaboralModificarActivity","ExpLaboralEliminarActivity"};
 
     @Override
