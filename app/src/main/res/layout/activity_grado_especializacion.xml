@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="#ff61697a">
 
 
     <TextView
@@ -12,58 +13,56 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
-        android:textColor="#ff352e2c"
+        android:textColor="#ffd25a56"
         android:theme="@android:style/Animation"
         android:textSize="27dp" />
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/TVtablaGradoEspecializacion">
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/insertarImgBoton"
+        android:onClick="insertarGradoEspecializacion"
+        android:src="@drawable/botoninsertar"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/TVtablaGradoEspecializacion"
+        android:layout_alignLeft="@+id/modificarImgBoton"
+        android:layout_alignStart="@+id/modificarImgBoton"
+        android:layout_marginTop="92dp"
+        android:background="#ff61697a" />
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/insertarImgBoton"
-            android:onClick="insertarGradoEspecializacion"
-            android:src="@drawable/botoninsertar"
-            android:layout_below="@+id/TVtablaReferencia"
-            android:layout_alignLeft="@+id/eliminarImgBoton"
-            android:layout_alignStart="@+id/eliminarImgBoton" />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/eliminarImgBoton"
+        android:onClick="eliminarGradoEspecializacion"
+        android:src="@drawable/botoneliminar"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/insertarImgBoton"
+        android:layout_alignLeft="@+id/insertarImgBoton"
+        android:layout_alignStart="@+id/insertarImgBoton"
+        android:background="#ff61697a" />
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/eliminarImgBoton"
-            android:onClick="eliminarGradoEspecializacion"
-            android:src="@drawable/botoneliminar"
-            android:layout_above="@+id/modificarImgBoton"
-            android:layout_centerHorizontal="true" />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/modificarImgBoton"
+        android:onClick="modificarGradoEspecializacion"
+        android:src="@drawable/botonmodificar"
+        android:adjustViewBounds="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/eliminarImgBoton"
+        android:layout_centerHorizontal="true"
+        android:background="#ff61697a" />
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/modificarImgBoton"
-            android:onClick="modificarGradoEspecializacion"
-            android:src="@drawable/botonmodificar"
-            android:adjustViewBounds="true"
-            android:layout_above="@+id/consultarImgBoton"
-            android:layout_alignLeft="@+id/consultarImgBoton"
-            android:layout_alignStart="@+id/consultarImgBoton" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/consultarImgBoton"
-            android:onClick="consultarGradoEspecializacion"
-            android:src="@drawable/botonconsultar"
-            android:layout_gravity="left|bottom"
-            android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/eliminarImgBoton"
-            android:layout_alignStart="@+id/eliminarImgBoton" />
-    </LinearLayout>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/consultarImgBoton"
+        android:onClick="consultarGradoEspecializacion"
+        android:src="@drawable/botonconsultar"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/modificarImgBoton"
+        android:layout_centerHorizontal="true"
+        android:background="#ff61697a" />
 
 </RelativeLayout>

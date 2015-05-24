@@ -36,7 +36,7 @@
             <EditText
                 android:id="@+id/editIdEmpleado"
                 android:inputType="text"
-                android:maxLength="30"/>
+                android:maxLength="7"/>
         </TableRow>
 
         <TableRow
@@ -60,7 +60,7 @@
             <EditText
                 android:id="@+id/editNombreReferencia"
                 android:inputType="text"
-                android:maxLength="1"/>
+                android:maxLength="30"/>
         </TableRow>
         <TableRow
             android:layout_width="fill_parent"
@@ -70,7 +70,7 @@
             <EditText
                 android:id="@+id/editTelefonoReferencia"
                 android:inputType="text"
-                android:maxLength="1"/>
+                android:maxLength="8"/>
         </TableRow>
         <TableRow
             android:layout_width="fill_parent"
@@ -84,7 +84,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
             <Button
-                android:onClick="insertarAlumno"
+                android:onClick="insertarReferenciaAct"
                 android:text="@string/insertar"/>
             <Button
                 android:onClick="limpiarTexto"
