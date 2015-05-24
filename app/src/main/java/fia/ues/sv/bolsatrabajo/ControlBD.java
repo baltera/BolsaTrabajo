@@ -27,7 +27,7 @@ public class ControlBD {
     /*FIN FR12001*/
     /*Campos FB12001*/
     private static final String[] camposCargo = new String[]{"ID_CARGO","NOMBRE_CARGO","DESCRIPCION_CARGO"};
-    private static final String[] camposAplicacion = new String[]{"ID_APLICACION","ID_EMPLEADO","ID_OFERTALABORAL","ID_EMPRESA","FECHA_APLICACION","ESTADO_APLICACION"};
+   // private static final String[] camposAplicacion = new String[]{"ID_APLICACION","ID_EMPLEADO","ID_OFERTALABORAL","ID_EMPRESA","FECHA_APLICACION","ESTADO_APLICACION"};
     private static final String[] camposEmpresaCar= new String[]{"ID_EMPRESA","NOMBRE_EMPRESA","NIT_EMPRESA","DIR_EMPRESA","TEL_EMPRESA","CANTOFERTAS_EMPRESA"};
 
   //fin fb12001
