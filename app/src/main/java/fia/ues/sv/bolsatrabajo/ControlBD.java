@@ -147,8 +147,20 @@ public class ControlBD {
         final int[] idsAplicacionTodos={1,2,3,4};
         final String[] fechaAplicacion={"23/05/15","13/05/15","20/05/15","24/05/15"};
         final String[] estadoAplicacion={"Aceptada","Aceptada","En Proceso","En Proceso"};
-        //Vectoress tabla Edgardo
-        //Vectores tabla Eduardo
+        //Vectores tabla Eduardo+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+        final int[] gradoEspeIdSpe={1,2,3,4};
+        final String[] gradoEspeNombre={"Java Junior","Oracle 11g","Tecnico De Sistemas","Java Senior"};
+        final int[] gradoEspeDuration={2,1,3,4};
+        final int[] gradoEspeIdInsti={1,2,3,4};
+
+        final int[] referenceId={1,2,3,4};
+        final String[] referenceName={"Juan Perez","Rafael Molina","Pompilio Marcebundo","José Menjivar"};
+        final String[] referencePhone={"22002200","77777777","22222222","225777777"};
+        final int[] referenceIdEmple={1,2,3,4};
+        final int[] referenceIdBusiness={1,2,3,4};
+     //Vectoress tabla Edgardo
+
        /*------EMPIEZA LA INSERCION ---*/
         for (int i = 0; i < 4; i++) {
             //tabla empresa
@@ -196,6 +208,25 @@ public class ControlBD {
             aplicacion.setFechaAplicacion(fechaAplicacion[i]);
             aplicacion.setEstadoAplicacion(estadoAplicacion[i]);
             insertar(aplicacion);
+
+            //tabla Referencia
+            Referencia refe=new Referencia();
+            refe.setNombre_referencia(referenceName[i]);
+            refe.setId_empleado(referenceIdEmple[i]);
+            refe.setId_empresa(referenceIdBusiness[i]);
+            refe.setTelefono_referencia(referencePhone[i]);
+            refe.setId_referencia(referenceId[i]);
+            insertar(refe);
+
+
+            //tabla GradoEspecializacion
+
+            GradoEspecializacion grade=new GradoEspecializacion();
+            grade.setId_especializacion(gradoEspeIdSpe[i]);
+            grade.setNombre_especializacion(gradoEspeNombre[i]);
+            grade.setId_institutoEstudio(gradoEspeIdInsti[i]);
+            grade.setDuracion_especializacion(gradoEspeDuration[i]);
+            insertar(grade);
 
 
         }//fin for
